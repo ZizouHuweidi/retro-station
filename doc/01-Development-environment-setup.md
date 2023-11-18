@@ -2,8 +2,7 @@
 
 - [I. Development environment](#i-development-environment)
   - [1. Project Profile](#1-project-profile)
-  - [2. Use to technology stack](#2-use-to-technology-stack)
-        - [Tips : If you are not familiar with many of the technology stack here, do not be afraid, as long as you will mysql, redis can start these two middleware in the start of the project first run up the project, the other can slowly learn.](#tips--if-you-are-not-familiar-with-many-of-the-technology-stack-here-do-not-be-afraid-as-long-as-you-will-mysql-redis-can-start-these-two-middleware-in-the-start-of-the-project-first-run-up-the-project-the-other-can-slowly-learn)
+  - [2. Use to technology stack](#2-use-to-technology-stack) - [Tips : If you are not familiar with many of the technology stack here, do not be afraid, as long as you will mysql, redis can start these two middleware in the start of the project first run up the project, the other can slowly learn.](#tips--if-you-are-not-familiar-with-many-of-the-technology-stack-here-do-not-be-afraid-as-long-as-you-will-mysql-redis-can-start-these-two-middleware-in-the-start-of-the-project-first-run-up-the-project-the-other-can-slowly-learn)
   - [3. Project Architecture Diagram](#3-project-architecture-diagram)
   - [4. Business Architecture Diagram](#4-business-architecture-diagram)
   - [5. Project Environment Setup](#5-project-environment-setup)
@@ -28,7 +27,7 @@
 
 ## 1. Project Profile
 
-Address of this project :  <https://github.com/Mikaelemmmm/go-zero-looklook>
+Address of this project : <https://github.com/Mikaelemmmm/go-zero-looklook>
 
 The whole project uses go-zero microservices framework, which basically includes go-zero and some middleware developed by related go-zero authors, and the technology stack used is basically the self-developed components of go-zero project team, which is basically go-zero family bucket.
 
@@ -57,17 +56,13 @@ The project directory structure is as follows:
 
 ```
 
->Check <https://github.com/cortesi/modd>, for more information about modd tool wa are using to hot-reload the project uppon file change.
+> Check <https://github.com/cortesi/modd>, for more information about modd tool wa are using to hot-reload the project uppon file change.
 
-*PS: The project will only golang-1.17.7-alpine as base image for the installed modd, if you want to put other tools (goctl, protoc, golint, protoc, golint, etc.) do not use my mirror directly.
+\*PS: The project will only golang-1.17.7-alpine as base image for the installed modd, if you want to put other tools (goctl, protoc, golint, protoc, golint, etc.) do not use my mirror directly.
 
 ## 2. Use to technology stack
 
-
-
 ##### Tips : If you are not familiar with many of the technology stack here, do not be afraid, as long as you will mysql, redis can start these two middleware in the start of the project first run up the project, the other can slowly learn.
-
-
 
 - Kubernetes _(a.k.a k8s)_
 - go-zero
@@ -106,8 +101,6 @@ The project directory structure is as follows:
 > ⚠️ If you encounter problems during the build process, you can see "9. Common Errors"
 
 The project uses modd hot-loading function instantly modify the code in time to take effect, and do not need to restart each time, change the code automatically in the container reload, local services do not need to start, locally installed sdk is to write code automatically prompted to use, the actual run is since the container lyumikael/go-modd-env:v1.0.0 golang environment. So use goland, vscode are the same
-
-Translated with www.DeepL.com/Translator (free version)
 
 [Note] Since this project has more middleware, starting docker on non-linux may consume more memory, so it is recommended that the memory allocated to docker on the physical machine be adjusted to 8G.
 
@@ -162,34 +155,36 @@ $ update user set host='%' where user='root';
 $ FLUSH PRIVILEGES;
 ```
 
-create databases and tables. 
+create databases and tables.
 you need to connect to mysql outside the container, and type the following commands to create the databases and tables.
-``` shell
+
+```shell
 $ Create database looklook_order; use looklook_order; source deploy/sql/looklook_order.sql;
 $ Create database looklook_payment; use looklook_payment; source looklook_payment.sql;
 $ Create database looklook_travel; use looklook_travel; source deploy/sql/looklook_travel.sql;
 $ Create database looklook_usercenter; use looklook_usercenter; source looklook_usercenter.sql;
 ```
+
 Be sure that the sql should be exec after entering the corresponding database!
-Or you can use some MySQL UI client to achieve the above purpose. If you don't have a mysql clinet, you can also copy sql file into the container and 'source it'. 
+Or you can use some MySQL UI client to achieve the above purpose. If you don't have a mysql clinet, you can also copy sql file into the container and 'source it'.
 
 ### 5.4. View Service Environment
 
 Elastic search: <http://127.0.0.1:9200/> （⚠️ :This startup time is a bit long）
 
-jaeger: <http://127.0.0.1:16686/search>  (⚠️ :If it fails, rely on es, because es start time is long this may timeout, wait for es start play restart a)
+jaeger: <http://127.0.0.1:16686/search> (⚠️ :If it fails, rely on es, because es start time is long this may timeout, wait for es start play restart a)
 
-go-stash : If you find that the logs are not collected when kibana clicks next and your kafka gets the data, please restart go-stash and wait for a minute.  (⚠️ :If you are mac m1 or linux arm, please change the go-stash image in docker-compose-env.yml kevinwan/go-stash:1.0-arm64, the default is for linux amd)
+go-stash : If you find that the logs are not collected when kibana clicks next and your kafka gets the data, please restart go-stash and wait for a minute. (⚠️ :If you are mac m1 or linux arm, please change the go-stash image in docker-compose-env.yml kevinwan/go-stash:1.0-arm64, the default is for linux amd)
 
 asynq （Delayed tasks, sheduler tasks, message queues）: <http://127.0.0.1:8980/>
 
-kibana  : <http://127.0.0.1:5601/>
+kibana : <http://127.0.0.1:5601/>
 
 Prometheus: <http://127.0.0.1:9090/>
 
-Grafana: <http://127.0.0.1:3001/>  ， The default account and password are admin
+Grafana: <http://127.0.0.1:3001/> ， The default account and password are admin
 
-Mysql :   Self-client tools (Navicat, Sequel Pro) to view
+Mysql : Self-client tools (Navicat, Sequel Pro) to view
 
 - host : 127.0.0.1
 
@@ -199,7 +194,7 @@ Mysql :   Self-client tools (Navicat, Sequel Pro) to view
 
 - pwd : PXDN93VRKUm8TeE7
 
-Redis :   View by tool (redisManager)
+Redis : View by tool (redisManager)
 
 - host : 127.0.0.1
 
@@ -207,7 +202,7 @@ Redis :   View by tool (redisManager)
 
 - pwd : G62m50oigInC30sf
 
-Kafka:  (pub.sub)Self-client tool view
+Kafka: (pub.sub)Self-client tool view
 
 - host : 127.0.0.1
 
@@ -282,7 +277,7 @@ Click on the top left menu (the three horizontal lines), find Analytics - > clic
 
 <img src="../chinese/images/1/image-20220120105829870.png" alt="image-20220120105829870" style="zoom:33%;" />
 
-Then on the current page, Create index pattern->type looklook-* -> Next Step -> select @timestamp->Create index pattern
+Then on the current page, Create index pattern->type looklook-\* -> Next Step -> select @timestamp->Create index pattern
 
 Then click the top left menu, find Analytics->click discover, the logs are displayed (if not, check filebeat, go-stash, use docker logs -f filebeat to view)
 
@@ -300,27 +295,27 @@ Then click the top left menu, find Analytics->click discover, the logs are displ
 
 - The go-stash image is being used incorrectly
 
-    Look at the go-stash log, if there is a core dumped, it means that the mirror is being used incorrectly.
+  Look at the go-stash log, if there is a core dumped, it means that the mirror is being used incorrectly.
 
-    Solution:
+  Solution:
 
-    If you are mac m1 or linux arm, please change the go-stash image in docker-compose-env.yml kevinwan/go-stash:1.0-arm64, the default is for linux amd.
+  If you are mac m1 or linux arm, please change the go-stash image in docker-compose-env.yml kevinwan/go-stash:1.0-arm64, the default is for linux amd.
 
 - docker version problem
 
   Answer:
 
-    This I did not actually encounter, but some students using docker version is 1.13 encountered, filebeat configuration file configuration to collect docker path low version docker may not be the same location resulting in the collection of docker internal logs, it is best to upgrade the docker18.03.1 above the current no problem, 17 did not actually test , 17 My side of the docker version is Version: 20.10.8
+  This I did not actually encounter, but some students using docker version is 1.13 encountered, filebeat configuration file configuration to collect docker path low version docker may not be the same location resulting in the collection of docker internal logs, it is best to upgrade the docker18.03.1 above the current no problem, 17 did not actually test , 17 My side of the docker version is Version: 20.10.8
 
 - Internal kafka problem
 
   Solution:
 
-    1) docker logs check the container logs of kafka, filbeat, go-stash, es in order to make sure the services are OK
+  1. docker logs check the container logs of kafka, filbeat, go-stash, es in order to make sure the services are OK
 
-    2) first docker logs -f filebeat to see if the filebeat is correctly connected to kafka
+  2. first docker logs -f filebeat to see if the filebeat is correctly connected to kafka
 
-    3) Go into the kafka container and execute consume kafka-log messages to see if the filebeat messages have been sent to kafka
+  3. Go into the kafka container and execute consume kafka-log messages to see if the filebeat messages have been sent to kafka
 
   ```shell
   docker exec -it kafka /bin/sh
@@ -332,11 +327,9 @@ Then click the top left menu, find Analytics->click discover, the logs are displ
 
   If you can not consume
 
-  1) it should be a connection problem between filebeat and kafka, to see if the kafka configuration information Listen is modified
+  1. it should be a connection problem between filebeat and kafka, to see if the kafka configuration information Listen is modified
 
-  2) In the kafka container internal command line using consumer.sh consumption looklook-log, another terminal command line with producer.sh to looklook-log send messages, if the consumer can not receive, indicating that the kafka problem, docker logs -f kafka to see what the problem
-
-
+  2. In the kafka container internal command line using consumer.sh consumption looklook-log, another terminal command line with producer.sh to looklook-log send messages, if the consumer can not receive, indicating that the kafka problem, docker logs -f kafka to see what the problem
 
 ## 7. Introduction of this project mirror
 
@@ -408,7 +401,7 @@ Note] It is recommended that when generating the rpc file, execute the following
 1. Grafana reports an error at creation stage, start docker-compose-env.yml container
 
 - **Error:** File permissions, more information here: <http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later>
-`mkdir: can't create directory '/var/lib/grafana/plugins': Permission denied`
+  `mkdir: can't create directory '/var/lib/grafana/plugins': Permission denied`
 - **Solution:** Add `user: root` to grafana in docker-compose-env.yml
 
 2. Issue when starting filebeat:
@@ -419,7 +412,7 @@ Note] It is recommended that when generating the rpc file, execute the following
 3. Issue when starting Elasticsearch:
 
 - **Error:** elasticsearch container startup error `ElasticsearchException[failed to bind service]; nested: AccessDeniedException[/usr/share/elasticsearch/data/nodes] ;
-Likely root cause: java.nio.file.AccessDeniedException: /usr/share/elasticsearch/data/nodes``
+  Likely root cause: java.nio.file.AccessDeniedException: /usr/share/elasticsearch/data/nodes``
 - **Solution:** The reason for the error is that es does not have permission to operate the mount directory and cannot bind the nodes, solution, modify the permissions `sudo chmod 777 data/elasticsearch/data` (I don't know which user started es, so I changed 777 the files permission)
 
 4. Jaeger depends on elasticsearch and does not fail to restart automatically
