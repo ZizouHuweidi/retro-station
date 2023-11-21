@@ -16,13 +16,11 @@
     "timeout": 30,
     "basePath": "/api/v1",
     "host": "http://localhost",
-    "productsPath": "products",
+    "gamesPath": "games",
     "debugHeaders": true,
     "httpClientDebug": true,
     "debugErrorsResponse": true,
-    "ignoreLogUrls": [
-      "metrics"
-    ]
+    "ignoreLogUrls": ["metrics"]
   },
   "logOptions": {
     "level": "debug",

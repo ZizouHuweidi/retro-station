@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/require"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 	config3 "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo/config"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
@@ -16,30 +17,29 @@ import (
 	mongo2 "github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/mongo"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/rabbitmq"
 	redis2 "github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/redis"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/contracts/data"
-	catalogs2 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/configurations/catalogs"
-
-	"github.com/stretchr/testify/require"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.opentelemetry.io/otel/trace"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/games/contracts/data"
+	catalogs2 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/configurations/catalogs"
 )
 
 type TestApp struct{}
 
 type TestAppResult struct {
-	Cfg                    *config.Config
-	Bus                    bus.RabbitmqBus
-	Container              contracts.Container
-	Logger                 logger.Logger
-	RabbitmqOptions        *config2.RabbitmqOptions
-	EchoHttpOptions        *config3.EchoHttpOptions
-	MongoDbOptions         *mongodb.MongoDbOptions
-	RedisOptions           *redis.RedisOptions
-	ProductCacheRepository data.ProductCacheRepository
-	ProductRepository      data.ProductRepository
-	MongoClient            *mongo.Client
-	Tracer                 trace.Tracer
+	Cfg                 *config.Config
+	Bus                 bus.RabbitmqBus
+	Container           contracts.Container
+	Logger              logger.Logger
+	RabbitmqOptions     *config2.RabbitmqOptions
+	EchoHttpOptions     *config3.EchoHttpOptions
+	MongoDbOptions      *mongodb.MongoDbOptions
+	RedisOptions        *redis.RedisOptions
+	GameCacheRepository data.GameCacheRepository
+	GameRepository      data.GameRepository
+	MongoClient         *mongo.Client
+	Tracer              trace.Tracer
 }
 
 func NewTestApp() *TestApp {
@@ -71,25 +71,25 @@ func (a *TestApp) Run(t *testing.T) (result *TestAppResult) {
 			rabbitmqOptions *config2.RabbitmqOptions,
 			mongoOptions *mongodb.MongoDbOptions,
 			redisOptions *redis.RedisOptions,
-			productCacheRepository data.ProductCacheRepository,
-			productRepository data.ProductRepository,
+			gameCacheRepository data.GameCacheRepository,
+			gameRepository data.GameRepository,
 			echoOptions *config3.EchoHttpOptions,
 			mongoClient *mongo.Client,
 			tracer trace.Tracer,
 		) {
 			result = &TestAppResult{
-				Bus:                    bus,
-				Cfg:                    cfg,
-				Container:              testApp,
-				Logger:                 logger,
-				RabbitmqOptions:        rabbitmqOptions,
-				MongoDbOptions:         mongoOptions,
-				ProductRepository:      productRepository,
-				ProductCacheRepository: productCacheRepository,
-				EchoHttpOptions:        echoOptions,
-				MongoClient:            mongoClient,
-				RedisOptions:           redisOptions,
-				Tracer:                 tracer,
+				Bus:                 bus,
+				Cfg:                 cfg,
+				Container:           testApp,
+				Logger:              logger,
+				RabbitmqOptions:     rabbitmqOptions,
+				MongoDbOptions:      mongoOptions,
+				GameRepository:      gameRepository,
+				GameCacheRepository: gameCacheRepository,
+				EchoHttpOptions:     echoOptions,
+				MongoClient:         mongoClient,
+				RedisOptions:        redisOptions,
+				Tracer:              tracer,
 			}
 		},
 	)

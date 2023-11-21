@@ -5,6 +5,11 @@ import (
 	"log"
 	"testing"
 
+	uuid "github.com/satori/go.uuid"
+	"github.com/stretchr/testify/assert"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+
 	"github.com/zizouhuweidi/retro-station/internal/pkg/core/data"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/core/data/specification"
 	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
@@ -12,27 +17,22 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/pkg/mapper"
 	mongo2 "github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/mongo"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
-
-	uuid "github.com/satori/go.uuid"
-	"github.com/stretchr/testify/assert"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 const (
 	DatabaseName   = "catalogs_write"
-	CollectionName = "products"
+	CollectionName = "games"
 )
 
-// Product is a domain_events entity
-type Product struct {
+// Game is a domain_events entity
+type Game struct {
 	ID          string
 	Name        string
 	Weight      int
 	IsAvailable bool
 }
 
-type ProductMongo struct {
+type GameMongo struct {
 	ID          string `json:"id"          bson:"_id,omitempty"` // https://www.mongodb.com/docs/drivers/go/current/fundamentals/crud/write-operations/insert/#the-_id-field
 	Name        string `json:"name"        bson:"name"`
 	Weight      int    `json:"weight"      bson:"weight"`
@@ -40,12 +40,12 @@ type ProductMongo struct {
 }
 
 func init() {
-	err := mapper.CreateMap[*ProductMongo, *Product]()
+	err := mapper.CreateMap[*GameMongo, *Game]()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = mapper.CreateMap[*Product, *ProductMongo]()
+	err = mapper.CreateMap[*Game, *GameMongo]()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -55,21 +55,21 @@ func Test_Add(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepository(ctx, t)
 
-	product := &ProductMongo{
+	game := &GameMongo{
 		ID: uuid.NewV4().
 			String(),
 		// we generate id ourselves because auto generate mongo string id column with type _id is not an uuid
-		Name:        "added_product",
+		Name:        "added_game",
 		Weight:      100,
 		IsAvailable: true,
 	}
 
-	err = repository.Add(ctx, product)
+	err = repository.Add(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	id, err := uuid.FromString(product.ID)
+	id, err := uuid.FromString(game.ID)
 	if err != nil {
 		return
 	}
@@ -80,7 +80,7 @@ func Test_Add(t *testing.T) {
 	}
 
 	assert.NotNil(t, p)
-	assert.Equal(t, product.ID, p.ID)
+	assert.Equal(t, game.ID, p.ID)
 }
 
 func Test_Add_With_Data_Model(t *testing.T) {
@@ -90,21 +90,21 @@ func Test_Add_With_Data_Model(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	product := &Product{
+	game := &Game{
 		ID: uuid.NewV4().
 			String(),
 		// we generate id ourselves because auto generate mongo string id column with type _id is not an uuid
-		Name:        "added_product",
+		Name:        "added_game",
 		Weight:      100,
 		IsAvailable: true,
 	}
 
-	err = repository.Add(ctx, product)
+	err = repository.Add(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	id, err := uuid.FromString(product.ID)
+	id, err := uuid.FromString(game.ID)
 	if err != nil {
 		return
 	}
@@ -115,7 +115,7 @@ func Test_Add_With_Data_Model(t *testing.T) {
 	}
 
 	assert.NotNil(t, p)
-	assert.Equal(t, product.ID, p.ID)
+	assert.Equal(t, game.ID, p.ID)
 }
 
 func Test_Get_By_Id(t *testing.T) {
@@ -134,17 +134,17 @@ func Test_Get_By_Id(t *testing.T) {
 
 	testCases := []struct {
 		Name         string
-		ProductId    uuid.UUID
-		ExpectResult *ProductMongo
+		GameId       uuid.UUID
+		ExpectResult *GameMongo
 	}{
 		{
-			Name:         "ExistingProduct",
-			ProductId:    id,
+			Name:         "ExistingGame",
+			GameId:       id,
 			ExpectResult: p,
 		},
 		{
-			Name:         "NonExistingProduct",
-			ProductId:    uuid.NewV4(),
+			Name:         "NonExistingGame",
+			GameId:       uuid.NewV4(),
 			ExpectResult: nil,
 		},
 	}
@@ -153,7 +153,7 @@ func Test_Get_By_Id(t *testing.T) {
 		c := c
 		t.Run(c.Name, func(t *testing.T) {
 			t.Parallel()
-			res, err := repository.GetById(ctx, c.ProductId)
+			res, err := repository.GetById(ctx, c.GameId)
 			if c.ExpectResult == nil {
 				assert.Error(t, err)
 				assert.True(t, customErrors.IsNotFoundError(err))
@@ -184,17 +184,17 @@ func Test_Get_By_Id_With_Data_Model(t *testing.T) {
 
 	testCases := []struct {
 		Name         string
-		ProductId    uuid.UUID
-		ExpectResult *Product
+		GameId       uuid.UUID
+		ExpectResult *Game
 	}{
 		{
-			Name:         "ExistingProduct",
-			ProductId:    id,
+			Name:         "ExistingGame",
+			GameId:       id,
 			ExpectResult: p,
 		},
 		{
-			Name:         "NonExistingProduct",
-			ProductId:    uuid.NewV4(),
+			Name:         "NonExistingGame",
+			GameId:       uuid.NewV4(),
 			ExpectResult: nil,
 		},
 	}
@@ -203,7 +203,7 @@ func Test_Get_By_Id_With_Data_Model(t *testing.T) {
 		c := c
 		t.Run(c.Name, func(t *testing.T) {
 			t.Parallel()
-			res, err := repository.GetById(ctx, c.ProductId)
+			res, err := repository.GetById(ctx, c.GameId)
 			if c.ExpectResult == nil {
 				assert.Error(t, err)
 				assert.True(t, customErrors.IsNotFoundError(err))
@@ -294,7 +294,7 @@ func Test_Search(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	models, err := repository.Search(ctx, "seed_product1", utils.NewListQuery(10, 1))
+	models, err := repository.Search(ctx, "seed_game1", utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -307,7 +307,7 @@ func Test_Search_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepositoryWithDataModel(ctx, t)
 
-	models, err := repository.Search(ctx, "seed_product1", utils.NewListQuery(10, 1))
+	models, err := repository.Search(ctx, "seed_game1", utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -320,7 +320,7 @@ func Test_GetByFilter(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepository(ctx, t)
 
-	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_product1"})
+	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_game1"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -333,7 +333,7 @@ func Test_GetByFilter_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepositoryWithDataModel(ctx, t)
 
-	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_product1"})
+	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_game1"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -346,19 +346,19 @@ func Test_Update(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepository(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	product.Name = "product2_updated"
-	err = repository.Update(ctx, product)
+	game.Name = "game2_updated"
+	err = repository.Update(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	id, err := uuid.FromString(product.ID)
+	id, err := uuid.FromString(game.ID)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -368,26 +368,26 @@ func Test_Update(t *testing.T) {
 		t.Fatal(err)
 	}
 	assert.NotNil(t, single)
-	assert.Equal(t, "product2_updated", single.Name)
+	assert.Equal(t, "game2_updated", single.Name)
 }
 
 func Test_Update_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepositoryWithDataModel(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	product.Name = "product2_updated"
-	err = repository.Update(ctx, product)
+	game.Name = "game2_updated"
+	err = repository.Update(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	id, err := uuid.FromString(product.ID)
+	id, err := uuid.FromString(game.ID)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -397,20 +397,20 @@ func Test_Update_With_Data_Model(t *testing.T) {
 		t.Fatal(err)
 	}
 	assert.NotNil(t, single)
-	assert.Equal(t, "product2_updated", single.Name)
+	assert.Equal(t, "game2_updated", single.Name)
 }
 
 func Test_Delete(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepository(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	id, err := uuid.FromString(product.ID)
+	id, err := uuid.FromString(game.ID)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -428,13 +428,13 @@ func Test_Delete_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericMongoRepositoryWithDataModel(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	id, err := uuid.FromString(product.ID)
+	id, err := uuid.FromString(game.ID)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -509,7 +509,7 @@ func Test_Find(t *testing.T) {
 
 	entities, err := repository.Find(
 		ctx,
-		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_product1")),
+		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_game1")),
 	)
 	if err != nil {
 		return
@@ -526,7 +526,7 @@ func Test_Find_With_Data_Model(t *testing.T) {
 
 	entities, err := repository.Find(
 		ctx,
-		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_product1")),
+		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_game1")),
 	)
 	if err != nil {
 		return
@@ -537,7 +537,7 @@ func Test_Find_With_Data_Model(t *testing.T) {
 func setupGenericMongoRepositoryWithDataModel(
 	ctx context.Context,
 	t *testing.T,
-) (data.GenericRepositoryWithDataModel[*ProductMongo, *Product], error) {
+) (data.GenericRepositoryWithDataModel[*GameMongo, *Game], error) {
 	defaultLogger.SetupDefaultLogger()
 
 	db, err := mongo2.NewMongoTestContainers(defaultLogger.Logger).Start(ctx, t)
@@ -550,10 +550,10 @@ func setupGenericMongoRepositoryWithDataModel(
 		return nil, err
 	}
 
-	return NewGenericMongoRepositoryWithDataModel[*ProductMongo, *Product](db, DatabaseName, CollectionName), nil
+	return NewGenericMongoRepositoryWithDataModel[*GameMongo, *Game](db, DatabaseName, CollectionName), nil
 }
 
-func setupGenericMongoRepository(ctx context.Context, t *testing.T) (data.GenericRepository[*ProductMongo], error) {
+func setupGenericMongoRepository(ctx context.Context, t *testing.T) (data.GenericRepository[*GameMongo], error) {
 	defaultLogger.SetupDefaultLogger()
 
 	db, err := mongo2.NewMongoTestContainers(defaultLogger.Logger).Start(ctx, t)
@@ -566,16 +566,16 @@ func setupGenericMongoRepository(ctx context.Context, t *testing.T) (data.Generi
 		return nil, err
 	}
 
-	return NewGenericMongoRepository[*ProductMongo](db, DatabaseName, CollectionName), nil
+	return NewGenericMongoRepository[*GameMongo](db, DatabaseName, CollectionName), nil
 }
 
 func seedAndMigration(ctx context.Context, db *mongo.Client) error {
-	seedProducts := []*ProductMongo{
+	seedGames := []*GameMongo{
 		{
 			ID: uuid.NewV4().
 				String(),
 			// we generate id ourselves because auto generate mongo string id column with type _id is not an uuid
-			Name:        "seed_product1",
+			Name:        "seed_game1",
 			Weight:      100,
 			IsAvailable: true,
 		},
@@ -583,15 +583,15 @@ func seedAndMigration(ctx context.Context, db *mongo.Client) error {
 			ID: uuid.NewV4().
 				String(),
 			// we generate id ourselves because auto generate mongo string id column with type _id is not an uuid
-			Name:        "seed_product2",
+			Name:        "seed_game2",
 			Weight:      100,
 			IsAvailable: true,
 		},
 	}
 
 	// https://go.dev/doc/faq#convert_slice_of_interface
-	data := make([]interface{}, len(seedProducts))
-	for i, v := range seedProducts {
+	data := make([]interface{}, len(seedGames))
+	for i, v := range seedGames {
 		data[i] = v
 	}
 

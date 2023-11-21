@@ -1,6 +1,7 @@
 package infrastructure
 
 import (
+	"github.com/go-playground/validator"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/core"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
@@ -12,10 +13,9 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/configurations"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/redis"
-	rabbitmq2 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/configurations/rabbitmq"
-
-	"github.com/go-playground/validator"
 	"go.uber.org/fx"
+
+	rabbitmq2 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/games/configurations/rabbitmq"
 )
 
 // https://pmihaylov.com/shared-components-go-microservices/
@@ -31,7 +31,7 @@ var Module = fx.Module(
 	rabbitmq.ModuleFunc(
 		func(v *validator.Validate, l logger.Logger, tracer tracing.AppTracer) configurations.RabbitMQConfigurationBuilderFuc {
 			return func(builder configurations.RabbitMQConfigurationBuilder) {
-				rabbitmq2.ConfigProductsRabbitMQ(builder, l, v, tracer)
+				rabbitmq2.ConfigGamesRabbitMQ(builder, l, v, tracer)
 			}
 		},
 	),

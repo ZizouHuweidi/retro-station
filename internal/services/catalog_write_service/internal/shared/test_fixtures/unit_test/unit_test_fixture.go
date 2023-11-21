@@ -4,32 +4,32 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/suite"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 	defaultLogger "github.com/zizouhuweidi/retro-station/internal/pkg/logger/default_logger"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/mapper"
 	mocks3 "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/mocks"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/contracts/data"
-	dto "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/dto/v1"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/mocks/testData"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/models"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/mocks"
-
-	"github.com/stretchr/testify/mock"
-	"github.com/stretchr/testify/require"
-	"github.com/stretchr/testify/suite"
 	"go.opentelemetry.io/otel/trace"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/contracts/data"
+	dto "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/dto/v1"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/mocks/testData"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/mocks"
 )
 
 type UnitTestSharedFixture struct {
 	Cfg *config.AppOptions
 	Log logger.Logger
 	suite.Suite
-	Items             []*models.Product
-	Uow               *mocks.CatalogUnitOfWork
-	ProductRepository *mocks.ProductRepository
-	Bus               *mocks3.Bus
-	Tracer            trace.Tracer
+	Items          []*models.Game
+	Uow            *mocks.CatalogUnitOfWork
+	GameRepository *mocks.GameRepository
+	Bus            *mocks3.Bus
+	Tracer         trace.Tracer
 }
 
 func NewUnitTestSharedFixture(t *testing.T) *UnitTestSharedFixture {
@@ -48,7 +48,7 @@ func NewUnitTestSharedFixture(t *testing.T) *UnitTestSharedFixture {
 	unit := &UnitTestSharedFixture{
 		Cfg:    cfg,
 		Log:    log,
-		Items:  testData.Products,
+		Items:  testData.Games,
 		Tracer: testTracer,
 	}
 
@@ -56,12 +56,12 @@ func NewUnitTestSharedFixture(t *testing.T) *UnitTestSharedFixture {
 }
 
 func configMapper() error {
-	err := mapper.CreateMap[*models.Product, *dto.ProductDto]()
+	err := mapper.CreateMap[*models.Game, *dto.GameDto]()
 	if err != nil {
 		return err
 	}
 
-	err = mapper.CreateMap[*dto.ProductDto, *models.Product]()
+	err = mapper.CreateMap[*dto.GameDto, *models.Game]()
 	if err != nil {
 		return err
 	}
@@ -72,7 +72,7 @@ func configMapper() error {
 // //////////////Shared Hooks////////////////
 func (c *UnitTestSharedFixture) SetupTest() {
 	// create new mocks
-	productRepository := &mocks.ProductRepository{}
+	gameRepository := &mocks.GameRepository{}
 	bus := &mocks3.Bus{}
 	uow := &mocks.CatalogUnitOfWork{}
 	catalogContext := &mocks.CatalogContext{}
@@ -82,11 +82,11 @@ func (c *UnitTestSharedFixture) SetupTest() {
 	//c.Bus.Calls = nil
 	//c.Uow.ExpectedCalls = nil
 	//c.Uow.Calls = nil
-	//c.ProductRepository.ExpectedCalls = nil
-	//c.ProductRepository.Calls = nil
+	//c.GameRepository.ExpectedCalls = nil
+	//c.GameRepository.Calls = nil
 
-	uow.On("Products").Return(productRepository)
-	catalogContext.On("Products").Return(productRepository)
+	uow.On("Games").Return(gameRepository)
+	catalogContext.On("Games").Return(gameRepository)
 
 	var mockUOW *mock.Call
 	mockUOW = uow.On("Do", mock.Anything, mock.Anything).
@@ -104,7 +104,7 @@ func (c *UnitTestSharedFixture) SetupTest() {
 	bus.On("PublishMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
 
 	c.Uow = uow
-	c.ProductRepository = productRepository
+	c.GameRepository = gameRepository
 	c.Bus = bus
 }
 

@@ -23,6 +23,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	attribute2 "go.opentelemetry.io/otel/attribute"
 
+	data2 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/games/contracts/data"
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/games/models"
 )
 
@@ -41,7 +42,7 @@ func NewMongoGameRepository(
 	db *mongo.Client,
 	mongoOptions *mongodb.MongoDbOptions,
 	tracer tracing.AppTracer,
-) data2.gameRepository {
+) data2.GameRepository {
 	mongoRepo := repository.NewGenericMongoRepository[*models.Game](
 		db,
 		mongoOptions.Database,
@@ -50,7 +51,7 @@ func NewMongoGameRepository(
 	return &mongoGameRepository{log: log, mongoGenericRepository: mongoRepo, tracer: tracer}
 }
 
-func (p *mongoGameRepository) GetAllgames(
+func (p *mongoGameRepository) GetAllGames(
 	ctx context.Context,
 	listQuery *utils.ListQuery,
 ) (*utils.ListResult[*models.Game], error) {
@@ -79,12 +80,12 @@ func (p *mongoGameRepository) GetAllgames(
 	return result, nil
 }
 
-func (p *mongoGameRepository) Searchgames(
+func (p *mongoGameRepository) SearchGames(
 	ctx context.Context,
 	searchText string,
 	listQuery *utils.ListQuery,
 ) (*utils.ListResult[*models.Game], error) {
-	ctx, span := p.tracer.Start(ctx, "mongogameRepository.Searchgames")
+	ctx, span := p.tracer.Start(ctx, "mongoGameRepository.SearchGames")
 	span.SetAttributes(attribute2.String("SearchText", searchText))
 	defer span.End()
 
@@ -94,14 +95,14 @@ func (p *mongoGameRepository) Searchgames(
 			span,
 			errors.WrapIf(
 				err,
-				"[mongoGameRepository_Searchgames.Paginate] error in the paginate",
+				"[mongoGameRepository_SearchGames.Paginate] error in the paginate",
 			),
 		)
 	}
 
 	p.log.Infow(
 		fmt.Sprintf(
-			"[mongoGameRepository.Searchgames] games loaded for search term '%s'",
+			"[mongoGameRepository.SearchGames] games loaded for search term '%s'",
 			searchText,
 		),
 		logger.Fields{"gamesResult": result},
@@ -112,11 +113,11 @@ func (p *mongoGameRepository) Searchgames(
 	return result, nil
 }
 
-func (p *mongoGameRepository) GetgameById(
+func (p *mongoGameRepository) GetGameById(
 	ctx context.Context,
 	uuid string,
 ) (*models.Game, error) {
-	ctx, span := p.tracer.Start(ctx, "mongogameRepository.GetgameById")
+	ctx, span := p.tracer.Start(ctx, "mongoGameRepository.GetGameById")
 	span.SetAttributes(attribute2.String("Id", uuid))
 	defer span.End()
 
@@ -132,7 +133,7 @@ func (p *mongoGameRepository) GetgameById(
 			errors.WrapIf(
 				err,
 				fmt.Sprintf(
-					"[mongogameRepository_GetgameById.FindOne] can't find the game with id %s into the database.",
+					"[mongoGameRepository_GetGameById.FindOne] can't find the game with id %s into the database.",
 					uuid,
 				),
 			),
@@ -142,19 +143,19 @@ func (p *mongoGameRepository) GetgameById(
 	span.SetAttributes(attribute.Object("game", game))
 
 	p.log.Infow(
-		fmt.Sprintf("[mongogameRepository.GetgameById] game with id %s laoded", uuid),
+		fmt.Sprintf("[mongoGameRepository.GetGameById] game with id %s laoded", uuid),
 		logger.Fields{"game": game, "Id": uuid},
 	)
 
 	return game, nil
 }
 
-func (p *mongoGameRepository) GetgameBygameId(
+func (p *mongoGameRepository) GetGameByGameId(
 	ctx context.Context,
 	uuid string,
 ) (*models.Game, error) {
 	gameId := uuid
-	ctx, span := p.tracer.Start(ctx, "mongogameRepository.GetgameBygameId")
+	ctx, span := p.tracer.Start(ctx, "mongoGameRepository.GetGameByGameId")
 	span.SetAttributes(attribute2.String("gameId", gameId))
 	defer span.End()
 
@@ -168,7 +169,7 @@ func (p *mongoGameRepository) GetgameBygameId(
 			errors.WrapIf(
 				err,
 				fmt.Sprintf(
-					"[mongogameRepository_GetgameById.FindOne] can't find the game with gameId %s into the database.",
+					"[mongoGameRepository_GetGameById.FindOne] can't find the game with gameId %s into the database.",
 					uuid,
 				),
 			),
@@ -179,7 +180,7 @@ func (p *mongoGameRepository) GetgameBygameId(
 
 	p.log.Infow(
 		fmt.Sprintf(
-			"[mongogameRepository.GetgameById] game with gameId %s laoded",
+			"[mongoGameRepository.GetGameById] game with gameId %s laoded",
 			gameId,
 		),
 		logger.Fields{"game": game, "gameId": uuid},
@@ -188,7 +189,7 @@ func (p *mongoGameRepository) GetgameBygameId(
 	return game, nil
 }
 
-func (p *mongoGameRepository) Creategame(
+func (p *mongoGameRepository) CreateGame(
 	ctx context.Context,
 	game *models.Game,
 ) (*models.Game, error) {

@@ -5,20 +5,20 @@ import (
 )
 
 type CatalogsMetrics struct {
-	CreateProductGrpcRequests     metric.Float64Counter
-	UpdateProductGrpcRequests     metric.Float64Counter
-	DeleteProductGrpcRequests     metric.Float64Counter
-	GetProductByIdGrpcRequests    metric.Float64Counter
-	SearchProductGrpcRequests     metric.Float64Counter
-	CreateProductHttpRequests     metric.Float64Counter
-	UpdateProductHttpRequests     metric.Float64Counter
-	DeleteProductHttpRequests     metric.Float64Counter
-	GetProductByIdHttpRequests    metric.Float64Counter
-	GetProductsHttpRequests       metric.Float64Counter
-	SearchProductHttpRequests     metric.Float64Counter
-	SuccessRabbitMQMessages       metric.Float64Counter
-	ErrorRabbitMQMessages         metric.Float64Counter
-	CreateProductRabbitMQMessages metric.Float64Counter
-	UpdateProductRabbitMQMessages metric.Float64Counter
-	DeleteProductRabbitMQMessages metric.Float64Counter
+	CreateGameGrpcRequests     metric.Float64Counter
+	UpdateGameGrpcRequests     metric.Float64Counter
+	DeleteGameGrpcRequests     metric.Float64Counter
+	GetGameByIdGrpcRequests    metric.Float64Counter
+	SearchGameGrpcRequests     metric.Float64Counter
+	CreateGameHttpRequests     metric.Float64Counter
+	UpdateGameHttpRequests     metric.Float64Counter
+	DeleteGameHttpRequests     metric.Float64Counter
+	GetGameByIdHttpRequests    metric.Float64Counter
+	GetGamesHttpRequests       metric.Float64Counter
+	SearchGameHttpRequests     metric.Float64Counter
+	SuccessRabbitMQMessages    metric.Float64Counter
+	ErrorRabbitMQMessages      metric.Float64Counter
+	CreateGameRabbitMQMessages metric.Float64Counter
+	UpdateGameRabbitMQMessages metric.Float64Counter
+	DeleteGameRabbitMQMessages metric.Float64Counter
 }

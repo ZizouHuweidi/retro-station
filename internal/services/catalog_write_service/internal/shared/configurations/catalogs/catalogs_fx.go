@@ -3,15 +3,15 @@ package catalogs
 import (
 	"fmt"
 
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/data/uow"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs/infrastructure"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/contracts"
-
 	"go.opentelemetry.io/otel/metric"
 	api "go.opentelemetry.io/otel/metric"
 	"go.uber.org/fx"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/data/uow"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs/infrastructure"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/contracts"
 )
 
 // https://pmihaylov.com/shared-components-go-microservices/
@@ -22,7 +22,7 @@ var CatalogsServiceModule = fx.Module(
 	infrastructure.Module,
 
 	// Features Modules
-	products.Module,
+	games.Module,
 
 	// Other provides
 	fx.Provide(provideCatalogsMetrics),
@@ -38,72 +38,72 @@ func provideCatalogsMetrics(
 		return nil, nil
 	}
 
-	createProductGrpcRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_create_product_grpc_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of create product grpc requests"),
+	createGameGrpcRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_create_game_grpc_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of create game grpc requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	updateProductGrpcRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_update_product_grpc_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of update product grpc requests"),
+	updateGameGrpcRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_update_game_grpc_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of update game grpc requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	deleteProductGrpcRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_delete_product_grpc_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of delete product grpc requests"),
+	deleteGameGrpcRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_delete_game_grpc_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of delete game grpc requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	getProductByIdGrpcRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_get_product_by_id_grpc_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of get product by id grpc requests"),
+	getGameByIdGrpcRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_get_game_by_id_grpc_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of get game by id grpc requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	searchProductGrpcRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_search_product_grpc_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of search product grpc requests"),
+	searchGameGrpcRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_search_game_grpc_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of search game grpc requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	createProductRabbitMQMessages, err := meter.Float64Counter(
-		fmt.Sprintf("%s_create_product_rabbitmq_messages_total", cfg.ServiceName),
-		api.WithDescription("The total number of create product rabbirmq messages"),
+	createGameRabbitMQMessages, err := meter.Float64Counter(
+		fmt.Sprintf("%s_create_game_rabbitmq_messages_total", cfg.ServiceName),
+		api.WithDescription("The total number of create game rabbirmq messages"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	updateProductRabbitMQMessages, err := meter.Float64Counter(
-		fmt.Sprintf("%s_update_product_rabbitmq_messages_total", cfg.ServiceName),
-		api.WithDescription("The total number of update product rabbirmq messages"),
+	updateGameRabbitMQMessages, err := meter.Float64Counter(
+		fmt.Sprintf("%s_update_game_rabbitmq_messages_total", cfg.ServiceName),
+		api.WithDescription("The total number of update game rabbirmq messages"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	deleteProductRabbitMQMessages, err := meter.Float64Counter(
-		fmt.Sprintf("%s_delete_product_rabbitmq_messages_total", cfg.ServiceName),
-		api.WithDescription("The total number of delete product rabbirmq messages"),
+	deleteGameRabbitMQMessages, err := meter.Float64Counter(
+		fmt.Sprintf("%s_delete_game_rabbitmq_messages_total", cfg.ServiceName),
+		api.WithDescription("The total number of delete game rabbirmq messages"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
 	successRabbitMQMessages, err := meter.Float64Counter(
-		fmt.Sprintf("%s_search_product_rabbitmq_messages_total", cfg.ServiceName),
+		fmt.Sprintf("%s_search_game_rabbitmq_messages_total", cfg.ServiceName),
 		api.WithDescription("The total number of success rabbitmq processed messages"),
 	)
 	if err != nil {
@@ -118,70 +118,70 @@ func provideCatalogsMetrics(
 		return nil, err
 	}
 
-	createProductHttpRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_create_product_http_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of create product http requests"),
+	createGameHttpRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_create_game_http_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of create game http requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	updateProductHttpRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_update_product_http_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of update product http requests"),
+	updateGameHttpRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_update_game_http_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of update game http requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	deleteProductHttpRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_delete_product_http_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of delete product http requests"),
+	deleteGameHttpRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_delete_game_http_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of delete game http requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	getProductByIdHttpRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_get_product_by_id_http_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of get product by id http requests"),
+	getGameByIdHttpRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_get_game_by_id_http_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of get game by id http requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	getProductsHttpRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_get_products_http_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of get products http requests"),
+	getGamesHttpRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_get_games_http_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of get games http requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	searchProductHttpRequests, err := meter.Float64Counter(
-		fmt.Sprintf("%s_search_product_http_requests_total", cfg.ServiceName),
-		api.WithDescription("The total number of search product http requests"),
+	searchGameHttpRequests, err := meter.Float64Counter(
+		fmt.Sprintf("%s_search_game_http_requests_total", cfg.ServiceName),
+		api.WithDescription("The total number of search game http requests"),
 	)
 	if err != nil {
 		return nil, err
 	}
 
 	return &contracts.CatalogsMetrics{
-		CreateProductRabbitMQMessages: createProductRabbitMQMessages,
-		GetProductByIdGrpcRequests:    getProductByIdGrpcRequests,
-		CreateProductGrpcRequests:     createProductGrpcRequests,
-		CreateProductHttpRequests:     createProductHttpRequests,
-		DeleteProductRabbitMQMessages: deleteProductRabbitMQMessages,
-		DeleteProductGrpcRequests:     deleteProductGrpcRequests,
-		DeleteProductHttpRequests:     deleteProductHttpRequests,
-		ErrorRabbitMQMessages:         errorRabbitMQMessages,
-		GetProductByIdHttpRequests:    getProductByIdHttpRequests,
-		GetProductsHttpRequests:       getProductsHttpRequests,
-		SearchProductGrpcRequests:     searchProductGrpcRequests,
-		SearchProductHttpRequests:     searchProductHttpRequests,
-		SuccessRabbitMQMessages:       successRabbitMQMessages,
-		UpdateProductRabbitMQMessages: updateProductRabbitMQMessages,
-		UpdateProductGrpcRequests:     updateProductGrpcRequests,
-		UpdateProductHttpRequests:     updateProductHttpRequests,
+		CreateGameRabbitMQMessages: createGameRabbitMQMessages,
+		GetGameByIdGrpcRequests:    getGameByIdGrpcRequests,
+		CreateGameGrpcRequests:     createGameGrpcRequests,
+		CreateGameHttpRequests:     createGameHttpRequests,
+		DeleteGameRabbitMQMessages: deleteGameRabbitMQMessages,
+		DeleteGameGrpcRequests:     deleteGameGrpcRequests,
+		DeleteGameHttpRequests:     deleteGameHttpRequests,
+		ErrorRabbitMQMessages:      errorRabbitMQMessages,
+		GetGameByIdHttpRequests:    getGameByIdHttpRequests,
+		GetGamesHttpRequests:       getGamesHttpRequests,
+		SearchGameGrpcRequests:     searchGameGrpcRequests,
+		SearchGameHttpRequests:     searchGameHttpRequests,
+		SuccessRabbitMQMessages:    successRabbitMQMessages,
+		UpdateGameRabbitMQMessages: updateGameRabbitMQMessages,
+		UpdateGameGrpcRequests:     updateGameGrpcRequests,
+		UpdateGameHttpRequests:     updateGameHttpRequests,
 	}, nil
 }

@@ -1,6 +1,7 @@
 package infrastructure
 
 import (
+	"github.com/go-playground/validator"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/core"
 	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc"
@@ -9,10 +10,9 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/pkg/otel"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/configurations"
-	rabbitmq2 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/configurations/rabbitmq"
-
-	"github.com/go-playground/validator"
 	"go.uber.org/fx"
+
+	rabbitmq2 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/configurations/rabbitmq"
 )
 
 // https://pmihaylov.com/shared-components-go-microservices/

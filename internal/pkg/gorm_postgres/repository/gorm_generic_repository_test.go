@@ -5,6 +5,11 @@ import (
 	"log"
 	"testing"
 
+	_ "github.com/lib/pq" // postgres driver
+	uuid "github.com/satori/go.uuid"
+	"github.com/stretchr/testify/assert"
+	"gorm.io/gorm"
+
 	"github.com/zizouhuweidi/retro-station/internal/pkg/core/data"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/core/data/specification"
 	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
@@ -12,24 +17,18 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/pkg/mapper"
 	gorm2 "github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/gorm"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
-
-	uuid "github.com/satori/go.uuid"
-	"github.com/stretchr/testify/assert"
-	"gorm.io/gorm"
-
-	_ "github.com/lib/pq" // postgres driver
 )
 
-// Product is a domain_events entity
-type Product struct {
+// Game is a domain_events entity
+type Game struct {
 	ID          uuid.UUID
 	Name        string
 	Weight      int
 	IsAvailable bool
 }
 
-// ProductGorm is DTO used to map Product entity to database
-type ProductGorm struct {
+// GameGorm is DTO used to map Game entity to database
+type GameGorm struct {
 	ID          uuid.UUID `gorm:"primaryKey;column:id"`
 	Name        string    `gorm:"column:name"`
 	Weight      int       `gorm:"column:weight"`
@@ -37,12 +36,12 @@ type ProductGorm struct {
 }
 
 func init() {
-	err := mapper.CreateMap[*ProductGorm, *Product]()
+	err := mapper.CreateMap[*GameGorm, *Game]()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = mapper.CreateMap[*Product, *ProductGorm]()
+	err = mapper.CreateMap[*Game, *GameGorm]()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,25 +51,25 @@ func Test_Add(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepository(ctx, t)
 
-	product := &ProductGorm{
+	game := &GameGorm{
 		ID:          uuid.NewV4(),
-		Name:        "added_product",
+		Name:        "added_game",
 		Weight:      100,
 		IsAvailable: true,
 	}
 
-	err = repository.Add(ctx, product)
+	err = repository.Add(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	p, err := repository.GetById(ctx, product.ID)
+	p, err := repository.GetById(ctx, game.ID)
 	if err != nil {
 		return
 	}
 
 	assert.NotNil(t, p)
-	assert.Equal(t, product.ID, p.ID)
+	assert.Equal(t, game.ID, p.ID)
 }
 
 func Test_Add_With_Data_Model(t *testing.T) {
@@ -80,25 +79,25 @@ func Test_Add_With_Data_Model(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	product := &Product{
+	game := &Game{
 		ID:          uuid.NewV4(),
-		Name:        "added_product",
+		Name:        "added_game",
 		Weight:      100,
 		IsAvailable: true,
 	}
 
-	err = repository.Add(ctx, product)
+	err = repository.Add(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	p, err := repository.GetById(ctx, product.ID)
+	p, err := repository.GetById(ctx, game.ID)
 	if err != nil {
 		return
 	}
 
 	assert.NotNil(t, p)
-	assert.Equal(t, product.ID, p.ID)
+	assert.Equal(t, game.ID, p.ID)
 }
 
 func Test_Get_By_Id(t *testing.T) {
@@ -116,17 +115,17 @@ func Test_Get_By_Id(t *testing.T) {
 
 	testCases := []struct {
 		Name         string
-		ProductId    uuid.UUID
-		ExpectResult *ProductGorm
+		GameId       uuid.UUID
+		ExpectResult *GameGorm
 	}{
 		{
-			Name:         "ExistingProduct",
-			ProductId:    p.ID,
+			Name:         "ExistingGame",
+			GameId:       p.ID,
 			ExpectResult: p,
 		},
 		{
-			Name:         "NonExistingProduct",
-			ProductId:    uuid.NewV4(),
+			Name:         "NonExistingGame",
+			GameId:       uuid.NewV4(),
 			ExpectResult: nil,
 		},
 	}
@@ -135,7 +134,7 @@ func Test_Get_By_Id(t *testing.T) {
 		c := c
 		t.Run(c.Name, func(t *testing.T) {
 			t.Parallel()
-			res, err := repository.GetById(ctx, c.ProductId)
+			res, err := repository.GetById(ctx, c.GameId)
 			if c.ExpectResult == nil {
 				assert.Error(t, err)
 				assert.True(t, customErrors.IsNotFoundError(err))
@@ -164,17 +163,17 @@ func Test_Get_By_Id_With_Data_Model(t *testing.T) {
 
 	testCases := []struct {
 		Name         string
-		ProductId    uuid.UUID
-		ExpectResult *Product
+		GameId       uuid.UUID
+		ExpectResult *Game
 	}{
 		{
-			Name:         "ExistingProduct",
-			ProductId:    p.ID,
+			Name:         "ExistingGame",
+			GameId:       p.ID,
 			ExpectResult: p,
 		},
 		{
-			Name:         "NonExistingProduct",
-			ProductId:    uuid.NewV4(),
+			Name:         "NonExistingGame",
+			GameId:       uuid.NewV4(),
 			ExpectResult: nil,
 		},
 	}
@@ -183,7 +182,7 @@ func Test_Get_By_Id_With_Data_Model(t *testing.T) {
 		c := c
 		t.Run(c.Name, func(t *testing.T) {
 			t.Parallel()
-			res, err := repository.GetById(ctx, c.ProductId)
+			res, err := repository.GetById(ctx, c.GameId)
 			if c.ExpectResult == nil {
 				assert.Error(t, err)
 				assert.True(t, customErrors.IsNotFoundError(err))
@@ -234,7 +233,7 @@ func Test_Search(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	models, err := repository.Search(ctx, "seed_product1", utils.NewListQuery(10, 1))
+	models, err := repository.Search(ctx, "seed_game1", utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -247,7 +246,7 @@ func Test_Search_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepositoryWithDataModel(ctx, t)
 
-	models, err := repository.Search(ctx, "seed_product1", utils.NewListQuery(10, 1))
+	models, err := repository.Search(ctx, "seed_game1", utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -260,7 +259,7 @@ func Test_Where(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepository(ctx, t)
 
-	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_product1"})
+	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_game1"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -273,7 +272,7 @@ func Test_Where_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepositoryWithDataModel(ctx, t)
 
-	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_product1"})
+	models, err := repository.GetByFilter(ctx, map[string]interface{}{"name": "seed_game1"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -286,66 +285,66 @@ func Test_Update(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepository(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	product.Name = "product2_updated"
-	err = repository.Update(ctx, product)
+	game.Name = "game2_updated"
+	err = repository.Update(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	single, err := repository.GetById(ctx, product.ID)
+	single, err := repository.GetById(ctx, game.ID)
 	if err != nil {
 		t.Fatal(err)
 	}
 	assert.NotNil(t, single)
-	assert.Equal(t, "product2_updated", single.Name)
+	assert.Equal(t, "game2_updated", single.Name)
 }
 
 func Test_Update_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepositoryWithDataModel(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	product.Name = "product2_updated"
-	err = repository.Update(ctx, product)
+	game.Name = "game2_updated"
+	err = repository.Update(ctx, game)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	single, err := repository.GetById(ctx, product.ID)
+	single, err := repository.GetById(ctx, game.ID)
 	if err != nil {
 		t.Fatal(err)
 	}
 	assert.NotNil(t, single)
-	assert.Equal(t, "product2_updated", single.Name)
+	assert.Equal(t, "game2_updated", single.Name)
 }
 
 func Test_Delete(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepository(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	err = repository.Delete(ctx, product.ID)
+	err = repository.Delete(ctx, game.ID)
 	if err != nil {
 		return
 	}
 
-	single, err := repository.GetById(ctx, product.ID)
+	single, err := repository.GetById(ctx, game.ID)
 	assert.Nil(t, single)
 }
 
@@ -353,18 +352,18 @@ func Test_Delete_With_Data_Model(t *testing.T) {
 	ctx := context.Background()
 	repository, err := setupGenericGormRepositoryWithDataModel(ctx, t)
 
-	products, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
+	games, err := repository.GetAll(ctx, utils.NewListQuery(10, 1))
 	if err != nil {
 		t.Fatal(err)
 	}
-	product := products.Items[0]
+	game := games.Items[0]
 
-	err = repository.Delete(ctx, product.ID)
+	err = repository.Delete(ctx, game.ID)
 	if err != nil {
 		return
 	}
 
-	single, err := repository.GetById(ctx, product.ID)
+	single, err := repository.GetById(ctx, game.ID)
 	assert.Nil(t, single)
 }
 
@@ -401,7 +400,7 @@ func Test_Find(t *testing.T) {
 
 	entities, err := repository.Find(
 		ctx,
-		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_product1")),
+		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_game1")),
 	)
 	if err != nil {
 		return
@@ -418,7 +417,7 @@ func Test_Find_With_Data_Model(t *testing.T) {
 
 	entities, err := repository.Find(
 		ctx,
-		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_product1")),
+		specification.And(specification.Equal("is_available", true), specification.Equal("name", "seed_game1")),
 	)
 	if err != nil {
 		return
@@ -429,7 +428,7 @@ func Test_Find_With_Data_Model(t *testing.T) {
 func setupGenericGormRepositoryWithDataModel(
 	ctx context.Context,
 	t *testing.T,
-) (data.GenericRepositoryWithDataModel[*ProductGorm, *Product], error) {
+) (data.GenericRepositoryWithDataModel[*GameGorm, *Game], error) {
 	defaultLogger.SetupDefaultLogger()
 
 	db, err := gorm2.NewGormTestContainers(defaultLogger.Logger).Start(ctx, t)
@@ -442,10 +441,10 @@ func setupGenericGormRepositoryWithDataModel(
 		return nil, err
 	}
 
-	return NewGenericGormRepositoryWithDataModel[*ProductGorm, *Product](db), nil
+	return NewGenericGormRepositoryWithDataModel[*GameGorm, *Game](db), nil
 }
 
-func setupGenericGormRepository(ctx context.Context, t *testing.T) (data.GenericRepository[*ProductGorm], error) {
+func setupGenericGormRepository(ctx context.Context, t *testing.T) (data.GenericRepository[*GameGorm], error) {
 	defaultLogger.SetupDefaultLogger()
 
 	db, err := gorm2.NewGormTestContainers(defaultLogger.Logger).Start(ctx, t)
@@ -455,31 +454,31 @@ func setupGenericGormRepository(ctx context.Context, t *testing.T) (data.Generic
 		return nil, err
 	}
 
-	return NewGenericGormRepository[*ProductGorm](db), nil
+	return NewGenericGormRepository[*GameGorm](db), nil
 }
 
 func seedAndMigration(ctx context.Context, db *gorm.DB) error {
-	err := db.AutoMigrate(ProductGorm{})
+	err := db.AutoMigrate(GameGorm{})
 	if err != nil {
 		return err
 	}
 
-	seedProducts := []*ProductGorm{
+	seedGames := []*GameGorm{
 		{
 			ID:          uuid.NewV4(),
-			Name:        "seed_product1",
+			Name:        "seed_game1",
 			Weight:      100,
 			IsAvailable: true,
 		},
 		{
 			ID:          uuid.NewV4(),
-			Name:        "seed_product2",
+			Name:        "seed_game2",
 			Weight:      100,
 			IsAvailable: true,
 		},
 	}
 
-	err = db.WithContext(ctx).Create(seedProducts).Error
+	err = db.WithContext(ctx).Create(seedGames).Error
 	if err != nil {
 		return err
 	}

@@ -4,30 +4,30 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/labstack/echo/v4"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/configurations"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs/infrastructure"
-
-	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/configurations"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs/infrastructure"
 )
 
 type CatalogsServiceConfigurator struct {
 	contracts.Application
 	infrastructureConfigurator *infrastructure.InfrastructureConfigurator
-	productsModuleConfigurator *configurations.ProductsModuleConfigurator
+	gamesModuleConfigurator    *configurations.GamesModuleConfigurator
 }
 
 func NewCatalogsServiceConfigurator(app contracts.Application) *CatalogsServiceConfigurator {
 	infraConfigurator := infrastructure.NewInfrastructureConfigurator(app)
-	productModuleConfigurator := configurations.NewProductsModuleConfigurator(app)
+	gameModuleConfigurator := configurations.NewGamesModuleConfigurator(app)
 
 	return &CatalogsServiceConfigurator{
 		Application:                app,
 		infrastructureConfigurator: infraConfigurator,
-		productsModuleConfigurator: productModuleConfigurator,
+		gamesModuleConfigurator:    gameModuleConfigurator,
 	}
 }
 
@@ -48,8 +48,8 @@ func (ic *CatalogsServiceConfigurator) ConfigureCatalogs() {
 	})
 
 	// Modules
-	// Product module
-	ic.productsModuleConfigurator.ConfigureProductsModule()
+	// Game module
+	ic.gamesModuleConfigurator.ConfigureGamesModule()
 }
 
 func (ic *CatalogsServiceConfigurator) MapCatalogsEndpoints() {
@@ -77,6 +77,6 @@ func (ic *CatalogsServiceConfigurator) MapCatalogsEndpoints() {
 	)
 
 	// Modules
-	// Products CatalogsServiceModule endpoints
-	ic.productsModuleConfigurator.MapProductsEndpoints()
+	// Games CatalogsServiceModule endpoints
+	ic.gamesModuleConfigurator.MapGamesEndpoints()
 }

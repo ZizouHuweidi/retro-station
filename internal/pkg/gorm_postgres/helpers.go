@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
-
 	"emperror.dev/errors"
 	"gorm.io/gorm"
+
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
 )
 
 // Ref: https://dev.to/rafaelgfirmino/pagination-using-gorm-scopes-3k5f
@@ -54,7 +54,7 @@ func Paginate[T any](
 	}
 
 	if err := query.Find(&items).Error; err != nil {
-		return nil, errors.WrapIf(err, "error in finding products.")
+		return nil, errors.WrapIf(err, "error in finding games.")
 	}
 
 	return utils.NewListResult[T](items, listQuery.GetSize(), listQuery.GetPage(), totalRows), nil

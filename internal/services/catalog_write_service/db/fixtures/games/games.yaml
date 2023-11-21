@@ -1,0 +1,9 @@
+{{range $Game := $.Games}}
+- game_id: {{$Game.GameId}}
+  name: {{$Game.Name}}
+  price: 100
+  genre: {{$Game.Genre}}
+  description: {{$Game.Description}}
+  created_at: 2022-01-01
+  updated_at: 2022-01-01
+{{end}}

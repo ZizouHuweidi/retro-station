@@ -5,6 +5,11 @@ import (
 	"testing"
 	"time"
 
+	"emperror.dev/errors"
+	"github.com/brianvoe/gofakeit/v6"
+	_ "github.com/lib/pq"
+	rabbithole "github.com/michaelklishin/rabbit-hole"
+	uuid "github.com/satori/go.uuid"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
@@ -12,36 +17,30 @@ import (
 	config2 "github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/config"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/testfixture"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/contracts/data"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/models"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/app/test"
-	productsService "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/grpc/genproto"
-
-	"emperror.dev/errors"
-	"github.com/brianvoe/gofakeit/v6"
-	rabbithole "github.com/michaelklishin/rabbit-hole"
-	uuid "github.com/satori/go.uuid"
 	"gopkg.in/khaiql/dbcleaner.v2"
 	"gorm.io/gorm"
 
-	_ "github.com/lib/pq"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/app/test"
+	gamesService "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/grpc/genproto"
 )
 
 type IntegrationTestSharedFixture struct {
-	Cfg                  *config.AppOptions
-	Log                  logger.Logger
-	Bus                  bus.Bus
-	CatalogUnitOfWorks   data.CatalogUnitOfWork
-	ProductRepository    data.ProductRepository
-	Container            contracts.Container
-	DbCleaner            dbcleaner.DbCleaner
-	RabbitmqCleaner      *rabbithole.Client
-	rabbitmqOptions      *config2.RabbitmqOptions
-	Gorm                 *gorm.DB
-	BaseAddress          string
-	Items                []*models.Product
-	ProductServiceClient productsService.ProductsServiceClient
+	Cfg                *config.AppOptions
+	Log                logger.Logger
+	Bus                bus.Bus
+	CatalogUnitOfWorks data.CatalogUnitOfWork
+	GameRepository     data.GameRepository
+	Container          contracts.Container
+	DbCleaner          dbcleaner.DbCleaner
+	RabbitmqCleaner    *rabbithole.Client
+	rabbitmqOptions    *config2.RabbitmqOptions
+	Gorm               *gorm.DB
+	BaseAddress        string
+	Items              []*models.Game
+	GameServiceClient  gamesService.GamesServiceClient
 }
 
 func NewIntegrationTestSharedFixture(
@@ -61,17 +60,17 @@ func NewIntegrationTestSharedFixture(
 	}
 
 	shared := &IntegrationTestSharedFixture{
-		Log:                  result.Logger,
-		Container:            result.Container,
-		Cfg:                  result.Cfg,
-		RabbitmqCleaner:      rmqc,
-		ProductRepository:    result.ProductRepository,
-		CatalogUnitOfWorks:   result.CatalogUnitOfWorks,
-		Bus:                  result.Bus,
-		rabbitmqOptions:      result.RabbitmqOptions,
-		Gorm:                 result.Gorm,
-		BaseAddress:          result.EchoHttpOptions.BasePathAddress(),
-		ProductServiceClient: result.ProductServiceClient,
+		Log:                result.Logger,
+		Container:          result.Container,
+		Cfg:                result.Cfg,
+		RabbitmqCleaner:    rmqc,
+		GameRepository:     result.GameRepository,
+		CatalogUnitOfWorks: result.CatalogUnitOfWorks,
+		Bus:                result.Bus,
+		rabbitmqOptions:    result.RabbitmqOptions,
+		Gorm:               result.Gorm,
+		BaseAddress:        result.EchoHttpOptions.BasePathAddress(),
+		GameServiceClient:  result.GameServiceClient,
 	}
 
 	migrateDatabase(result)
@@ -128,7 +127,7 @@ func (i *IntegrationTestSharedFixture) cleanupRabbitmqData() error {
 }
 
 func (i *IntegrationTestSharedFixture) cleanupPostgresData() error {
-	tables := []string{"products"}
+	tables := []string{"games"}
 	// Iterate over the tables and delete all records
 	for _, table := range tables {
 		err := i.Gorm.Exec("DELETE FROM " + table).Error
@@ -139,17 +138,17 @@ func (i *IntegrationTestSharedFixture) cleanupPostgresData() error {
 	return nil
 }
 
-func seedData(gormDB *gorm.DB) ([]*models.Product, error) {
-	products := []*models.Product{
+func seedData(gormDB *gorm.DB) ([]*models.Game, error) {
+	games := []*models.Game{
 		{
-			ProductId:   uuid.NewV4(),
+			GameId:      uuid.NewV4(),
 			Name:        gofakeit.Name(),
 			CreatedAt:   time.Now(),
 			Description: gofakeit.AdjectiveDescriptive(),
 			Price:       gofakeit.Price(100, 1000),
 		},
 		{
-			ProductId:   uuid.NewV4(),
+			GameId:      uuid.NewV4(),
 			Name:        gofakeit.Name(),
 			CreatedAt:   time.Now(),
 			Description: gofakeit.AdjectiveDescriptive(),
@@ -159,17 +158,17 @@ func seedData(gormDB *gorm.DB) ([]*models.Product, error) {
 
 	// migration will do in app configuration
 	// seed data
-	err := gormDB.CreateInBatches(products, len(products)).Error
+	err := gormDB.CreateInBatches(games, len(games)).Error
 	if err != nil {
 		return nil, errors.Wrap(err, "error in seed database")
 	}
 
-	return products, nil
+	return games, nil
 }
 
-func seedAndMigration(gormDB *gorm.DB) ([]*models.Product, error) {
+func seedAndMigration(gormDB *gorm.DB) ([]*models.Game, error) {
 	// migration
-	err := gormDB.AutoMigrate(models.Product{})
+	err := gormDB.AutoMigrate(models.Game{})
 	if err != nil {
 		return nil, errors.WrapIf(err, "error in seed database")
 	}
@@ -183,13 +182,13 @@ func seedAndMigration(gormDB *gorm.DB) ([]*models.Product, error) {
 	// seed data
 	var data []struct {
 		Name        string
-		ProductId   uuid.UUID
+		GameId      uuid.UUID
 		Description string
 	}
 
 	f := []struct {
 		Name        string
-		ProductId   uuid.UUID
+		GameId      uuid.UUID
 		Description string
 	}{
 		{gofakeit.Name(), uuid.NewV4(), gofakeit.AdjectiveDescriptive()},
@@ -200,15 +199,15 @@ func seedAndMigration(gormDB *gorm.DB) ([]*models.Product, error) {
 
 	err = testfixture.RunPostgresFixture(
 		db,
-		[]string{"db/fixtures/products"},
+		[]string{"db/fixtures/games"},
 		map[string]interface{}{
-			"Products": data,
+			"Games": data,
 		})
 	if err != nil {
 		return nil, errors.WrapIf(err, "error in seed database")
 	}
 
-	result, err := gormPostgres.Paginate[*models.Product](
+	result, err := gormPostgres.Paginate[*models.Game](
 		context.Background(),
 		utils.NewListQuery(10, 1),
 		gormDB,

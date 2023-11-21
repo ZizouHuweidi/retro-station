@@ -5,40 +5,40 @@ import (
 	"testing"
 	"time"
 
+	"emperror.dev/errors"
+	"github.com/brianvoe/gofakeit/v6"
+	rabbithole "github.com/michaelklishin/rabbit-hole"
+	uuid "github.com/satori/go.uuid"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/bus"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/mongodb"
 	config2 "github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/config"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/contracts/data"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/models"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/app/test"
-
-	"emperror.dev/errors"
-	"github.com/brianvoe/gofakeit/v6"
-	rabbithole "github.com/michaelklishin/rabbit-hole"
-	uuid "github.com/satori/go.uuid"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.opentelemetry.io/otel/trace"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/games/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/games/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/app/test"
 )
 
 type IntegrationTestSharedFixture struct {
-	Cfg                    *config.Config
-	Log                    logger.Logger
-	Bus                    bus.Bus
-	ProductRepository      data.ProductRepository
-	ProductCacheRepository data.ProductCacheRepository
-	Container              contracts.Container
-	RabbitmqCleaner        *rabbithole.Client
-	rabbitmqOptions        *config2.RabbitmqOptions
-	MongoOptions           *mongodb.MongoDbOptions
-	BaseAddress            string
-	mongoClient            *mongo.Client
-	Items                  []*models.Product
-	Tracer                 trace.Tracer
+	Cfg                 *config.Config
+	Log                 logger.Logger
+	Bus                 bus.Bus
+	GameRepository      data.GameRepository
+	GameCacheRepository data.GameCacheRepository
+	Container           contracts.Container
+	RabbitmqCleaner     *rabbithole.Client
+	rabbitmqOptions     *config2.RabbitmqOptions
+	MongoOptions        *mongodb.MongoDbOptions
+	BaseAddress         string
+	mongoClient         *mongo.Client
+	Items               []*models.Game
+	Tracer              trace.Tracer
 }
 
 func NewIntegrationTestSharedFixture(
@@ -56,18 +56,18 @@ func NewIntegrationTestSharedFixture(
 	}
 
 	shared := &IntegrationTestSharedFixture{
-		Log:                    result.Logger,
-		Container:              result.Container,
-		Cfg:                    result.Cfg,
-		RabbitmqCleaner:        rmqc,
-		ProductRepository:      result.ProductRepository,
-		ProductCacheRepository: result.ProductCacheRepository,
-		Bus:                    result.Bus,
-		rabbitmqOptions:        result.RabbitmqOptions,
-		MongoOptions:           result.MongoDbOptions,
-		BaseAddress:            result.EchoHttpOptions.BasePathAddress(),
-		mongoClient:            result.MongoClient,
-		Tracer:                 result.Tracer,
+		Log:                 result.Logger,
+		Container:           result.Container,
+		Cfg:                 result.Cfg,
+		RabbitmqCleaner:     rmqc,
+		GameRepository:      result.GameRepository,
+		GameCacheRepository: result.GameCacheRepository,
+		Bus:                 result.Bus,
+		rabbitmqOptions:     result.RabbitmqOptions,
+		MongoOptions:        result.MongoDbOptions,
+		BaseAddress:         result.EchoHttpOptions.BasePathAddress(),
+		mongoClient:         result.MongoClient,
+		Tracer:              result.Tracer,
 	}
 
 	return shared
@@ -101,46 +101,48 @@ func (i *IntegrationTestSharedFixture) DisposeTest() {
 func seedData(
 	db *mongo.Client,
 	databaseName string,
-) ([]*models.Product, error) {
+) ([]*models.Game, error) {
 	ctx := context.Background()
 
-	products := []*models.Product{
+	games := []*models.Game{
 		{
 			Id:          uuid.NewV4().String(),
-			ProductId:   uuid.NewV4().String(),
+			GameId:      uuid.NewV4().String(),
 			Name:        gofakeit.Name(),
 			CreatedAt:   time.Now(),
 			Description: gofakeit.AdjectiveDescriptive(),
 			Price:       gofakeit.Price(100, 1000),
+			Genre:       gofakeit.RandomString([]string{"Action", "Adventure", "RPG", "Strategy", "Simulation", "Sports", "Puzzle", "Idle"}),
 		},
 		{
 			Id:          uuid.NewV4().String(),
-			ProductId:   uuid.NewV4().String(),
+			GameId:      uuid.NewV4().String(),
 			Name:        gofakeit.Name(),
 			CreatedAt:   time.Now(),
 			Description: gofakeit.AdjectiveDescriptive(),
 			Price:       gofakeit.Price(100, 1000),
+			Genre:       gofakeit.RandomString([]string{"Action", "Adventure", "RPG", "Strategy", "Simulation", "Sports", "Puzzle", "Idle"}),
 		},
 	}
 
 	//// https://go.dev/doc/faq#convert_slice_of_interface
-	productsData := make([]interface{}, len(products))
+	gamesData := make([]interface{}, len(games))
 
-	for i, v := range products {
-		productsData[i] = v
+	for i, v := range games {
+		gamesData[i] = v
 	}
 
-	collection := db.Database(databaseName).Collection("products")
+	collection := db.Database(databaseName).Collection("games")
 	_, err := collection.InsertMany(
 		context.Background(),
-		productsData,
+		gamesData,
 		&options.InsertManyOptions{},
 	)
 	if err != nil {
 		return nil, errors.WrapIf(err, "error in seed database")
 	}
 
-	result, err := mongodb.Paginate[*models.Product](
+	result, err := mongodb.Paginate[*models.Game](
 		ctx,
 		utils.NewListQuery(10, 1),
 		collection,
@@ -174,7 +176,7 @@ func (i *IntegrationTestSharedFixture) cleanupRabbitmqData() error {
 }
 
 func (i *IntegrationTestSharedFixture) cleanupMongoData() error {
-	collections := []string{"products"}
+	collections := []string{"games"}
 	err := cleanupCollections(
 		i.mongoClient,
 		collections,

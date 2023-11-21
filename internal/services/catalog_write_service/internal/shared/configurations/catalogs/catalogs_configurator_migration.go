@@ -9,7 +9,7 @@ func (ic *CatalogsServiceConfigurator) migrateCatalogs(gorm *gorm.DB) error {
 	// - here I used goose for migration, with using cmd/migration file
 	// https://atlasgo.io/guides/orms/gorm
 
-	//err := gorm.AutoMigrate(&models.Product{})
+	//err := gorm.AutoMigrate(&models.Game{})
 	//if err != nil {
 	//	return err
 	//}

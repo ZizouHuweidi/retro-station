@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/require"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc"
@@ -17,13 +18,12 @@ import (
 	config2 "github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/config"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/gorm"
 	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/testcontainer/rabbitmq"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/contracts/data"
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs"
-	productsService "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/grpc/genproto"
-
-	"github.com/stretchr/testify/require"
 	gorm2 "gorm.io/gorm"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/games/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs"
+	gamesService "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/grpc/genproto"
 )
 
 type TestApp struct{}
@@ -37,9 +37,9 @@ type TestAppResult struct {
 	EchoHttpOptions         *config3.EchoHttpOptions
 	GormOptions             *gormPostgres.GormOptions
 	CatalogUnitOfWorks      data.CatalogUnitOfWork
-	ProductRepository       data.ProductRepository
+	GameRepository          data.GameRepository
 	Gorm                    *gorm2.DB
-	ProductServiceClient    productsService.ProductsServiceClient
+	GameServiceClient       gamesService.GamesServiceClient
 	GrpcClient              grpc.GrpcClient
 	PostgresMigrationRunner contracts2.PostgresMigrationRunner
 }
@@ -72,7 +72,7 @@ func (a *TestApp) Run(t *testing.T) (result *TestAppResult) {
 			rabbitmqOptions *config2.RabbitmqOptions,
 			gormOptions *gormPostgres.GormOptions,
 			catalogUnitOfWorks data.CatalogUnitOfWork,
-			productRepository data.ProductRepository,
+			gameRepository data.GameRepository,
 			gorm *gorm2.DB,
 			echoOptions *config3.EchoHttpOptions,
 			grpcClient grpc.GrpcClient,
@@ -87,12 +87,12 @@ func (a *TestApp) Run(t *testing.T) (result *TestAppResult) {
 				Logger:                  logger,
 				RabbitmqOptions:         rabbitmqOptions,
 				GormOptions:             gormOptions,
-				ProductRepository:       productRepository,
+				GameRepository:          gameRepository,
 				CatalogUnitOfWorks:      catalogUnitOfWorks,
 				Gorm:                    gorm,
 				EchoHttpOptions:         echoOptions,
 				PostgresMigrationRunner: postgresMigrationRunner,
-				ProductServiceClient: productsService.NewProductsServiceClient(
+				GameServiceClient: gamesService.NewGamesServiceClient(
 					grpcConnection,
 				),
 				GrpcClient: grpcClient,
