@@ -1,8 +1,8 @@
 package contracts
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	"go.uber.org/fx"
 )

@@ -5,8 +5,8 @@ package mocks
 import (
 	context "context"
 
-	pipeline "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/pipeline"
-	types "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
+	pipeline "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/pipeline"
+	types "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
 	mock "github.com/stretchr/testify/mock"
 )
 

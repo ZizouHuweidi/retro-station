@@ -5,17 +5,17 @@ package mocks
 import (
 	context "context"
 
-	appendResult "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/append_result"
+	appendResult "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/append_result"
 
-	expectedStreamVersion "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_version"
+	expectedStreamVersion "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_version"
 
-	metadata "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
+	metadata "github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
 
 	mock "github.com/stretchr/testify/mock"
 
-	models "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models"
+	models "github.com/zizouhuweidi/retro-station/internal/pkg/es/models"
 
-	readPosition "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_position/read_position"
+	readPosition "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_position/read_position"
 
 	uuid "github.com/satori/go.uuid"
 )

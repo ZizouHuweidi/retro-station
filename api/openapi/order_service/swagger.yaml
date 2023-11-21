@@ -1,5 +1,5 @@
 definitions:
-  github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto:
     properties:
       accountEmail:
         type: string
@@ -25,7 +25,7 @@ definitions:
         type: string
       shopItems:
         items:
-          $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto'
+          $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto"
         type: array
       submitted:
         type: boolean
@@ -34,7 +34,7 @@ definitions:
       updatedAt:
         type: string
     type: object
-  github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto:
     properties:
       description:
         type: string
@@ -45,7 +45,7 @@ definitions:
       title:
         type: string
     type: object
-  github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto:
     properties:
       description:
         type: string
@@ -56,8 +56,8 @@ definitions:
       title:
         type: string
     type: object
-  ? github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto
-  : properties:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto:
+    properties:
       accountEmail:
         type: string
       deliveryAddress:
@@ -66,23 +66,23 @@ definitions:
         type: string
       shopItems:
         items:
-          $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto'
+          $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto"
         type: array
     type: object
-  ? github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto
-  : properties:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto:
+    properties:
       Id:
         type: string
     type: object
-  ? github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto
-  : properties:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto:
+    properties:
       order:
-        $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto'
+        $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto"
     type: object
-  ? github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto
-  : properties:
+  github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto:
+    properties:
       orders:
-        $ref: '#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto'
+        $ref: "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto"
     type: object
   utils.FilterModel:
     properties:
@@ -93,11 +93,11 @@ definitions:
       value:
         type: string
     type: object
-  ? utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto
-  : properties:
+  utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto:
+    properties:
       items:
         items:
-          $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto'
+          $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto"
         type: array
       page:
         type: integer
@@ -111,7 +111,7 @@ definitions:
 info:
   contact:
     name: Mehdi Hadeli
-    url: https://github.com/mehdihadeli
+    url: https://github.com/zizouhuweidi
   description: Orders Service Api
   title: Orders Service Api
   version: "1.0"
@@ -119,68 +119,68 @@ paths:
   /api/v1/orders:
     get:
       consumes:
-      - application/json
+        - application/json
       description: Get all orders
       parameters:
-      - in: query
-        name: orderBy
-        type: string
-      - in: query
-        name: page
-        type: integer
-      - in: query
-        name: size
-        type: integer
+        - in: query
+          name: orderBy
+          type: string
+        - in: query
+          name: page
+          type: integer
+        - in: query
+          name: size
+          type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto'
+            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto"
       summary: Get all orders
       tags:
-      - Orders
+        - Orders
     post:
       consumes:
-      - application/json
+        - application/json
       description: Create new order
       parameters:
-      - description: Order data
-        in: body
-        name: CreateOrderRequestDto
-        required: true
-        schema:
-          $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto'
+        - description: Order data
+          in: body
+          name: CreateOrderRequestDto
+          required: true
+          schema:
+            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto"
       produces:
-      - application/json
+        - application/json
       responses:
         "201":
           description: Created
           schema:
-            $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto'
+            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto"
       summary: Create order
       tags:
-      - Orders
+        - Orders
   /api/v1/orders/{id}:
     get:
       consumes:
-      - application/json
+        - application/json
       description: Get order by id
       parameters:
-      - description: Order ID
-        in: path
-        name: id
-        required: true
-        type: string
+        - description: Order ID
+          in: path
+          name: id
+          required: true
+          type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto'
+            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto"
       summary: Get order by id
       tags:
-      - Orders
+        - Orders
 swagger: "2.0"

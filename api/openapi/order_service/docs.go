@@ -12,7 +12,7 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "contact": {
             "name": "Mehdi Hadeli",
-            "url": "https://github.com/mehdihadeli"
+            "url": "https://github.com/zizouhuweidi"
         },
         "version": "{{.Version}}"
     },
@@ -53,7 +53,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto"
                         }
                     }
                 }
@@ -77,7 +77,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto"
                         }
                     }
                 ],
@@ -85,7 +85,7 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto"
                         }
                     }
                 }
@@ -117,7 +117,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto"
                         }
                     }
                 }
@@ -125,7 +125,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto": {
             "type": "object",
             "properties": {
                 "accountEmail": {
@@ -164,7 +164,7 @@ const docTemplate = `{
                 "shopItems": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto"
+                        "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto"
                     }
                 },
                 "submitted": {
@@ -178,7 +178,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto": {
             "type": "object",
             "properties": {
                 "description": {
@@ -195,7 +195,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemReadDto": {
             "type": "object",
             "properties": {
                 "description": {
@@ -212,7 +212,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderRequestDto": {
             "type": "object",
             "properties": {
                 "accountEmail": {
@@ -227,12 +227,12 @@ const docTemplate = `{
                 "shopItems": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto"
+                        "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.ShopItemDto"
                     }
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_creating_order_v1_dtos.CreateOrderResponseDto": {
             "type": "object",
             "properties": {
                 "Id": {
@@ -240,19 +240,19 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_order_by_id_v1_dtos.GetOrderByIdResponseDto": {
             "type": "object",
             "properties": {
                 "order": {
-                    "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto"
+                    "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_features_getting_orders_v1_dtos.GetOrdersResponseDto": {
             "type": "object",
             "properties": {
                 "orders": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto"
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto"
                 }
             }
         },
@@ -270,13 +270,13 @@ const docTemplate = `{
                 }
             }
         },
-        "utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto": {
+        "utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1_OrderReadDto": {
             "type": "object",
             "properties": {
                 "items": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto"
+                        "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_orderservice_internal_orders_dtos_v1.OrderReadDto"
                     }
                 },
                 "page": {

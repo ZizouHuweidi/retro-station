@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	redis2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/redis"
+	redis2 "github.com/zizouhuweidi/retro-station/internal/pkg/redis"
 
 	"github.com/hibiken/asynq"
 	"go.uber.org/fx"

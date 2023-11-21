@@ -1,7 +1,7 @@
 package infrastructure
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 )
 
 type InfrastructureConfigurator struct {

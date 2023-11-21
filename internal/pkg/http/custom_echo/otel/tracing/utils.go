@@ -3,10 +3,10 @@ package tracing
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo/constants"
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/problemDetails"
-	errorUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils/error_utils"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo/constants"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/problemDetails"
+	errorUtils "github.com/zizouhuweidi/retro-station/internal/pkg/utils/error_utils"
 
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"

@@ -1,7 +1,7 @@
 package params
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/contracts/projection"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/contracts/projection"
 
 	"go.uber.org/fx"
 )

@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/health"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/fx"

@@ -3,12 +3,12 @@ package store
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models"
-	appendResult "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/append_result"
-	streamName "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_name"
-	readPosition "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_position/read_position"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_position/truncatePosition"
-	expectedStreamVersion "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_version"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/models"
+	appendResult "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/append_result"
+	streamName "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_name"
+	readPosition "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_position/read_position"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_position/truncatePosition"
+	expectedStreamVersion "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_version"
 )
 
 type EventStore interface {

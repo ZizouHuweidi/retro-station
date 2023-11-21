@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/events"
-	expectedStreamVersion "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models/stream_version"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/events"
+	expectedStreamVersion "github.com/zizouhuweidi/retro-station/internal/pkg/es/models/stream_version"
 
 	uuid "github.com/satori/go.uuid"
 )

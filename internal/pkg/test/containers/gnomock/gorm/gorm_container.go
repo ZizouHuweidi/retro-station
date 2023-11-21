@@ -5,8 +5,8 @@ import (
 	"log"
 	"testing"
 
-	gormPostgres "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/gorm_postgres"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/test/containers/contracts"
+	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/contracts"
 
 	"emperror.dev/errors"
 	"github.com/orlangure/gnomock"

@@ -2,48 +2,45 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-package products_service;
+package games_service;
 
-option go_package = "./;products_service";
+option go_package = "./;games_service";
 
-service ProductsService {
-  rpc CreateProduct(CreateProductReq) returns (CreateProductRes);
-  rpc UpdateProduct(UpdateProductReq) returns (UpdateProductRes);
-  rpc GetProductById(GetProductByIdReq) returns (GetProductByIdRes);
+service GamesService {
+  rpc CreateGame(CreateGameReq) returns (CreateGameRes);
+  rpc UpdateGame(UpdateGameReq) returns (UpdateGameRes);
+  rpc GetGameById(GetGameByIdReq) returns (GetGameByIdRes);
 }
 
-message Product {
-  string ProductId = 1;
+message Game {
+  string GameId = 1;
   string Name = 2;
   string Description = 3;
   double Price = 4;
+  string Genre = 5;
   google.protobuf.Timestamp CreatedAt = 6;
   google.protobuf.Timestamp UpdatedAt = 7;
 }
 
-message CreateProductReq {
+message CreateGameReq {
   string Name = 1;
   string Description = 2;
   double Price = 3;
+  string Genre = 4;
 }
 
-message CreateProductRes {
-  string ProductId = 1;
-}
+message CreateGameRes { string GameId = 1; }
 
-message UpdateProductReq {
-  string ProductId = 1;
+message UpdateGameReq {
+  string GameId = 1;
   string Name = 2;
   string Description = 3;
   double Price = 4;
+  string Genre = 5;
 }
 
-message UpdateProductRes {}
+message UpdateGameRes {}
 
-message GetProductByIdReq {
-  string ProductId = 1;
-}
+message GetGameByIdReq { string GameId = 1; }
 
-message GetProductByIdRes {
-  Product Product = 1;
-}
+message GetGameByIdRes { Game Game = 1; }

@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	gormPostgres "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/gorm_postgres"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/test/containers/contracts"
+	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/contracts"
 
 	"emperror.dev/errors"
 	"github.com/docker/docker/api/types/container"

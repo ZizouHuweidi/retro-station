@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	gormPostgres "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/gorm_postgres"
-	defaultLogger "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/default_logger"
+	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
+	defaultLogger "github.com/zizouhuweidi/retro-station/internal/pkg/logger/default_logger"
 
 	"github.com/docker/go-connections/nat"
 	"github.com/stretchr/testify/assert"

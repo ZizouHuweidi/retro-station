@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/contracts"
-	errorUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils/error_utils"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/contracts"
+	errorUtils "github.com/zizouhuweidi/retro-station/internal/pkg/utils/error_utils"
 
 	"emperror.dev/errors"
 	"github.com/stretchr/testify/assert"

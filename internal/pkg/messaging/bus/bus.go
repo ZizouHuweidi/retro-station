@@ -1,8 +1,8 @@
 package bus
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/consumer"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/producer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/consumer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/producer"
 )
 
 type Bus interface {

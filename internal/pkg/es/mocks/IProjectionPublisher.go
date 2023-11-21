@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	models "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models"
+	models "github.com/zizouhuweidi/retro-station/internal/pkg/es/models"
 	mock "github.com/stretchr/testify/mock"
 )
 

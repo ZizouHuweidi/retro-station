@@ -3,8 +3,8 @@ package producer
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
 )
 
 type Producer interface {

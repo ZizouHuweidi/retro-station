@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/eventstroredb/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/eventstroredb/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 )
 
 var EventstoreDBContainerOptionsDecorator = func(t *testing.T, ctx context.Context) interface{} {

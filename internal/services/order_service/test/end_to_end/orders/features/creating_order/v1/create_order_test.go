@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	customTypes "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/custom_types"
-	dtosV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/dtos/v1"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/creating_order/v1/dtos"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/test_fixtures/integration"
+	customTypes "github.com/zizouhuweidi/retro-station/internal/pkg/core/custom_types"
+	dtosV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/dtos/v1"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/creating_order/v1/dtos"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/test_fixtures/integration"
 
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/gavv/httpexpect/v2"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	"github.com/labstack/echo/v4"
 )

@@ -3,10 +3,10 @@ package test
 import (
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/zap"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/zap"
 
 	"go.uber.org/fx"
 	"go.uber.org/fx/fxtest"

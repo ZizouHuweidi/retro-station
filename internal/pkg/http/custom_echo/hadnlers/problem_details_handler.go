@@ -1,9 +1,9 @@
 package customHadnlers
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/problemDetails"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	errorUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils/error_utils"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/problemDetails"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	errorUtils "github.com/zizouhuweidi/retro-station/internal/pkg/utils/error_utils"
 
 	"github.com/labstack/echo/v4"
 )

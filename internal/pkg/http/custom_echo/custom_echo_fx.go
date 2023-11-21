@@ -5,8 +5,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	"go.uber.org/fx"
 )

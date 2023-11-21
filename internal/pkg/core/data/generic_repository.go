@@ -3,8 +3,8 @@ package data
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/data/specification"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/data/specification"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
 
 	uuid "github.com/satori/go.uuid"
 )

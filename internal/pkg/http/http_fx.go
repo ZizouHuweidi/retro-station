@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/client"
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/client"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
 
 	"go.uber.org/fx"
 )

@@ -1,13 +1,13 @@
 package fxapp
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	loggerConfig "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/logrous"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/models"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/zap"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	loggerConfig "github.com/zizouhuweidi/retro-station/internal/pkg/logger/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/logrous"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/zap"
 
 	"go.uber.org/fx"
 )

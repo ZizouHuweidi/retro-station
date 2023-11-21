@@ -1,9 +1,9 @@
-module github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice
+module github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice
 
 go 1.21
 
 // https://go.dev/doc/tutorial/call-module-code
-replace github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg => ../../pkg/
+replace github.com/zizouhuweidi/retro-station/internal/pkg => ../../pkg/
 
 require (
 	emperror.dev/errors v0.8.1
@@ -12,8 +12,8 @@ require (
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/labstack/echo/v4 v4.11.1
-	github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg v0.0.0-20230831075934-be8df319f588
-	github.com/mehdihadeli/go-mediatr v1.1.10
+	github.com/zizouhuweidi/retro-station/internal/pkg v0.0.0-20230831075934-be8df319f588
+	github.com/zizouhuweidi/go-mediatr v1.1.10
 	github.com/michaelklishin/rabbit-hole v1.5.0
 	github.com/pterm/pterm v0.12.69
 	github.com/redis/go-redis/v9 v9.0.5

@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	redis2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/redis"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/test/containers/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	redis2 "github.com/zizouhuweidi/retro-station/internal/pkg/redis"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/contracts"
 
 	"emperror.dev/errors"
 	"github.com/docker/go-connections/nat"

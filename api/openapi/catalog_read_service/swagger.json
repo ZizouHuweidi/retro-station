@@ -1,225 +1,206 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "description": "Catalogs Read-Service Api.",
-        "title": "Catalogs Read-Service Api",
-        "contact": {
-            "name": "Mehdi Hadeli",
-            "url": "https://github.com/mehdihadeli"
-        },
-        "version": "1.0"
-    },
-    "paths": {
-        "/api/v1/products": {
-            "get": {
-                "description": "Get all products",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Products"
-                ],
-                "summary": "Get all product",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "orderBy",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "page",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "size",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
-                        }
-                    }
-                }
+  "swagger": "2.0",
+  "info": {
+    "description": "Catalogs Read-Service Api.",
+    "title": "Catalogs Read-Service Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/games": {
+      "get": {
+        "description": "Get all games",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "tags": ["games"],
+        "summary": "Get all games",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "name": "size",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_getting_games_v1_dtos.GetgamesResponseDto"
             }
-        },
-        "/api/v1/products/search": {
-            "get": {
-                "description": "Search products",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Products"
-                ],
-                "summary": "Search products",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "search",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/products/{id}": {
-            "get": {
-                "description": "Get product by id",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Products"
-                ],
-                "summary": "Get product",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Product ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto"
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
     },
-    "definitions": {
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "price": {
-                    "type": "number"
-                },
-                "productId": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                }
+    "/api/v1/games/search": {
+      "get": {
+        "description": "Search games",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "tags": ["games"],
+        "summary": "Search games",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "search",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_searching_games_v1_dtos.SearchgamesResponseDto"
             }
-        },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto": {
-            "type": "object",
-            "properties": {
-                "product": {
-                    "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto"
-                }
-            }
-        },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto": {
-            "type": "object",
-            "properties": {
-                "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto"
-                }
-            }
-        },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto": {
-            "type": "object",
-            "properties": {
-                "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto"
-                }
-            }
-        },
-        "utils.FilterModel": {
-            "type": "object",
-            "properties": {
-                "comparison": {
-                    "type": "string"
-                },
-                "field": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "utils.ListQuery": {
-            "type": "object",
-            "properties": {
-                "filters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/utils.FilterModel"
-                    }
-                },
-                "orderBy": {
-                    "type": "string"
-                },
-                "page": {
-                    "type": "integer"
-                },
-                "size": {
-                    "type": "integer"
-                }
-            }
-        },
-        "utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto"
-                    }
-                },
-                "page": {
-                    "type": "integer"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "totalItems": {
-                    "type": "integer"
-                },
-                "totalPage": {
-                    "type": "integer"
-                }
-            }
+          }
         }
+      }
+    },
+    "/api/v1/games/{id}": {
+      "get": {
+        "description": "Get game by id",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "tags": ["games"],
+        "summary": "Get game",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "game ID",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_get_game_by_id_v1_dtos.GetgameByIdResponseDto"
+            }
+          }
+        }
+      }
     }
+  },
+  "definitions": {
+    "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto.gameDto": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "genre": {
+          "type": "string"
+        },
+        "gameId": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_get_game_by_id_v1_dtos.GetgameByIdResponseDto": {
+      "type": "object",
+      "properties": {
+        "game": {
+          "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto.gameDto"
+        }
+      }
+    },
+    "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_getting_games_v1_dtos.GetgamesResponseDto": {
+      "type": "object",
+      "properties": {
+        "games": {
+          "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto_gameDto"
+        }
+      }
+    },
+    "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_searching_games_v1_dtos.SearchgamesResponseDto": {
+      "type": "object",
+      "properties": {
+        "games": {
+          "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto_gameDto"
+        }
+      }
+    },
+    "utils.FilterModel": {
+      "type": "object",
+      "properties": {
+        "comparison": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "utils.ListQuery": {
+      "type": "object",
+      "properties": {
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/utils.FilterModel"
+          }
+        },
+        "orderBy": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        }
+      }
+    },
+    "utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto_gameDto": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto.gameDto"
+          }
+        },
+        "page": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalItems": {
+          "type": "integer"
+        },
+        "totalPage": {
+          "type": "integer"
+        }
+      }
+    }
+  }
 }

@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	metadata "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
+	metadata "github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
 	mock "github.com/stretchr/testify/mock"
 )
 

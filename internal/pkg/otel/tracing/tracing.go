@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	config2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	config2 "github.com/zizouhuweidi/retro-station/internal/pkg/otel/config"
 
 	"emperror.dev/errors"
 	"go.opentelemetry.io/contrib/propagators/ot"

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/serializer"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/bus"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/configurations"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/serializer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/bus"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/configurations"
 )
 
 type RabbitMQContainerOptions struct {

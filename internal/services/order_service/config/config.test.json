@@ -49,7 +49,7 @@
   "OpenTelemetryOptions": {
     "enable": true,
     "serviceName": "orders-service",
-    "instrumentationName": "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice",
+    "instrumentationName": "github.com/zizouhuweidi/retro-station/internal/services/orderservice",
     "id": 3,
     "alwaysOnSampler": true,
     "jaegerExporterOptions": {

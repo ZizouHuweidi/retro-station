@@ -10,9 +10,9 @@ package grpc
 //	"github.com/stretchr/testify/assert"
 //	"google.golang.org/protobuf/types/known/timestamppb"
 //
-//	testUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/test/utils"
-//	ordersService "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/contracts/proto"
-//	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/test_fixtures/e2e"
+//	testUtils "github.com/zizouhuweidi/retro-station/internal/pkg/test/utils"
+//	ordersService "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/contracts/proto"
+//	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/test_fixtures/e2e"
 //)
 //
 //type OrderGrpcServiceTests struct {

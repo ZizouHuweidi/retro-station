@@ -1,7 +1,7 @@
 package serializer
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
 
 	"emperror.dev/errors"
 )

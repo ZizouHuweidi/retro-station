@@ -1,11 +1,11 @@
 package test
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/test"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/shared/app"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/shared/configurations/catalogs"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/test"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/app"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/configurations/catalogs"
 
 	"go.uber.org/fx"
 	"go.uber.org/fx/fxtest"

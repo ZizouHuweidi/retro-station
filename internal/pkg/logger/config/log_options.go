@@ -1,10 +1,10 @@
 package config
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/models"
-	typeMapper "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/reflection/type_mappper"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/models"
+	typeMapper "github.com/zizouhuweidi/retro-station/internal/pkg/reflection/type_mappper"
 
 	"github.com/iancoleman/strcase"
 )

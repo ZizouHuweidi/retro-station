@@ -3,8 +3,8 @@
 package mocks
 
 import (
-	domain "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/domain"
-	metadata "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
+	domain "github.com/zizouhuweidi/retro-station/internal/pkg/core/domain"
+	metadata "github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
 
 	mock "github.com/stretchr/testify/mock"
 )

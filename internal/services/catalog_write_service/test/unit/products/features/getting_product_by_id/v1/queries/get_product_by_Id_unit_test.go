@@ -6,8 +6,8 @@ package queries
 import (
 	"testing"
 
-	getProductByIdQuery "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/getting_product_by_id/v1/queries"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/test_fixtures/unit_test"
+	getProductByIdQuery "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/getting_product_by_id/v1/queries"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/test_fixtures/unit_test"
 
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/suite"

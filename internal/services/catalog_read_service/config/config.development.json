@@ -58,7 +58,7 @@
   "OpenTelemetryOptions": {
     "enable": true,
     "serviceName": "catalogs-read-service",
-    "instrumentationName": "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice",
+    "instrumentationName": "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice",
     "id": 1,
     "alwaysOnSampler": true,
     "jaegerExporterOptions": {

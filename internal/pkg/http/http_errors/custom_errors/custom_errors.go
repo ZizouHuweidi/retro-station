@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/contracts"
 
 	"emperror.dev/errors"
 )

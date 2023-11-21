@@ -3,7 +3,7 @@ package logger
 import (
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/models"
 )
 
 type Fields map[string]interface{}

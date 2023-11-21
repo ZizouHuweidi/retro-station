@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
-	messageHeader "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/message_header"
-	messageTracing "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/otel/tracing"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
+	messageHeader "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/message_header"
+	messageTracing "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"

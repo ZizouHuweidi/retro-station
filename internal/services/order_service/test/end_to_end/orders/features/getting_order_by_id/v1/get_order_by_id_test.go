@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/test_fixtures/integration"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/test_fixtures/integration"
 
 	"github.com/gavv/httpexpect/v2"
 

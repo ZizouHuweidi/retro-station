@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/constants"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/constants"
 )
 
 func NewValidationProblemDetail(detail string, stackTrace string) ProblemDetailErr {

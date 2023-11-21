@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/eventstroredb"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/eventstroredb/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/test/containers/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/eventstroredb"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/eventstroredb/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/test/containers/contracts"
 
 	"emperror.dev/errors"
 	"github.com/EventStore/EventStore-Client-Go/esdb"

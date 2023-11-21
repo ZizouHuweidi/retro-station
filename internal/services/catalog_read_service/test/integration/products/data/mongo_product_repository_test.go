@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/models"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/shared/test_fixture/integration"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/test_fixture/integration"
 
 	"github.com/brianvoe/gofakeit/v6"
 	uuid "github.com/satori/go.uuid"

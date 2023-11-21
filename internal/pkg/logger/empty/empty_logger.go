@@ -3,8 +3,8 @@ package empty
 import (
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/models"
 )
 
 var EmptyLogger logger.Logger = &emptyLogger{}

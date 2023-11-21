@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
 
 	"emperror.dev/errors"
 	"github.com/stretchr/testify/assert"

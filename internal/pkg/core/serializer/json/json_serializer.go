@@ -3,7 +3,7 @@ package json
 import (
 	"log"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/serializer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/serializer"
 
 	"github.com/TylerBrock/colorjson"
 	"github.com/goccy/go-json"

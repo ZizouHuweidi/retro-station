@@ -3,9 +3,9 @@ package serializer
 import (
 	"reflect"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/events"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	typeMapper "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/reflection/type_mappper"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/events"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	typeMapper "github.com/zizouhuweidi/retro-station/internal/pkg/reflection/type_mappper"
 
 	"emperror.dev/errors"
 )

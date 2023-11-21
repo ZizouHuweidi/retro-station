@@ -6,8 +6,8 @@ package commands
 import (
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/deleting_product/v1/commands"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/test_fixtures/unit_test"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/deleting_product/v1/commands"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/test_fixtures/unit_test"
 
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/suite"

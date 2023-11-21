@@ -4,10 +4,10 @@ import (
 	"context"
 	"os"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/constants"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/constants"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	"github.com/spf13/viper"
 	"go.uber.org/fx"

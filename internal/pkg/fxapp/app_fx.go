@@ -3,12 +3,12 @@ package fxapp
 import (
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config"
-	logConfig "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/external/fxlog"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/logrous"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/models"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/zap"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config"
+	logConfig "github.com/zizouhuweidi/retro-station/internal/pkg/logger/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/external/fxlog"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/logrous"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/zap"
 
 	"go.uber.org/fx"
 )

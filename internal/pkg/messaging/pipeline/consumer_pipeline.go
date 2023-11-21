@@ -3,7 +3,7 @@ package pipeline
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
 )
 
 // ConsumerHandlerFunc is a continuation for the next task to execute in the pipeline

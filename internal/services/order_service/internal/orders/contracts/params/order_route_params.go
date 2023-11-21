@@ -1,8 +1,8 @@
 package params
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/contracts"
 
 	"github.com/go-playground/validator"
 	"github.com/labstack/echo/v4"

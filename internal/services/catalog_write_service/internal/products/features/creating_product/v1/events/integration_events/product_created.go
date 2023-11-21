@@ -1,8 +1,8 @@
 package integration_events
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	dtoV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/dto/v1"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	dtoV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/dto/v1"
 
 	uuid "github.com/satori/go.uuid"
 )

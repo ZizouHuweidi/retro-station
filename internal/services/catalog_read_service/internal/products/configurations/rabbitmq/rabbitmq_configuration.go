@@ -1,14 +1,14 @@
 package rabbitmq
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/consumer"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
-	rabbitmqConfigurations "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/configurations"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/consumer/configurations"
-	createProductExternalEventV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/features/creating_product/v1/events/integration_events/external_events"
-	deleteProductExternalEventV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/features/deleting_products/v1/events/integration_events/external_events"
-	updateProductExternalEventsV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/features/updating_products/v1/events/integration_events/external_events"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/consumer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
+	rabbitmqConfigurations "github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/configurations"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/consumer/configurations"
+	createProductExternalEventV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/creating_product/v1/events/integration_events/external_events"
+	deleteProductExternalEventV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/deleting_products/v1/events/integration_events/external_events"
+	updateProductExternalEventsV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/updating_products/v1/events/integration_events/external_events"
 
 	"github.com/go-playground/validator"
 )

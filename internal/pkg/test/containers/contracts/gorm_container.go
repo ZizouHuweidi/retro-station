@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	gormPostgres "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/gorm_postgres"
+	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
 
 	"gorm.io/gorm"
 )

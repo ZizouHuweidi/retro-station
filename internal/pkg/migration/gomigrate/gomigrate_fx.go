@@ -1,7 +1,7 @@
 package gomigrate
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/migration"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/migration"
 
 	"go.uber.org/fx"
 )

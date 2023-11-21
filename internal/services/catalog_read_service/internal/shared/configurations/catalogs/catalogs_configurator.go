@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/configurations"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/shared/configurations/catalogs/infrastructure"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/configurations"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/configurations/catalogs/infrastructure"
 
 	"github.com/labstack/echo/v4"
 )

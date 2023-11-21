@@ -1,10 +1,10 @@
 package configurations
 
 import (
-	messageConsumer "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/consumer"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/pipeline"
-	types2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/types"
+	messageConsumer "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/consumer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/pipeline"
+	types2 "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/types"
 )
 
 type RabbitMQConsumerConfigurationBuilder interface {

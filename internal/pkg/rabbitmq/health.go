@@ -3,8 +3,8 @@ package rabbitmq
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/health"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/types"
 
 	"emperror.dev/errors"
 )

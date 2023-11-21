@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	bun2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/bun"
+	bun2 "github.com/zizouhuweidi/retro-station/internal/pkg/bun"
 
 	"emperror.dev/errors"
 	"github.com/uptrace/bun"

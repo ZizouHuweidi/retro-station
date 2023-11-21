@@ -3,11 +3,11 @@ package main
 import (
 	"os"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/app"
-
 	"github.com/pterm/pterm"
 	"github.com/pterm/pterm/putils"
 	"github.com/spf13/cobra"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/app"
 )
 
 var rootCmd = &cobra.Command{
@@ -22,8 +22,8 @@ var rootCmd = &cobra.Command{
 
 // https://github.com/swaggo/swag#how-to-use-it-with-gin
 
-// @contact.name Mehdi Hadeli
-// @contact.url https://github.com/mehdihadeli
+// @contact.name El Zubeir Huweidi
+// @contact.url https://github.com/zizouhuweidi
 // @title Orders Service Api
 // @version 1.0
 // @description Orders Service Api

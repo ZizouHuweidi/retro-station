@@ -3,8 +3,8 @@ package config
 import (
 	"strings"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
 )
 
 type Config struct {

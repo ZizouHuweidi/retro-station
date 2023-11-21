@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"net/http"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/web/route"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/contracts/params"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/dtos"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/queries"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/web/route"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/contracts/params"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/dtos"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/queries"
 
 	"emperror.dev/errors"
 	"github.com/labstack/echo/v4"
-	"github.com/mehdihadeli/go-mediatr"
+	"github.com/zizouhuweidi/go-mediatr"
 )
 
 type searchProductsEndpoint struct {

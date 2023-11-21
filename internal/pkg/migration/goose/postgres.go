@@ -8,9 +8,9 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	migration "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/migration"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/migration/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	migration "github.com/zizouhuweidi/retro-station/internal/pkg/migration"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/migration/contracts"
 
 	"github.com/pressly/goose/v3"
 )

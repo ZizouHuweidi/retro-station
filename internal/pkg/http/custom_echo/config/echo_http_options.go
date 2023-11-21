@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	typeMapper "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/reflection/type_mappper"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	typeMapper "github.com/zizouhuweidi/retro-station/internal/pkg/reflection/type_mappper"
 
 	"github.com/iancoleman/strcase"
 )

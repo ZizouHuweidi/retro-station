@@ -3,7 +3,7 @@ package tracing
 import (
 	"context"
 
-	errorUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils/error_utils"
+	errorUtils "github.com/zizouhuweidi/retro-station/internal/pkg/utils/error_utils"
 
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"

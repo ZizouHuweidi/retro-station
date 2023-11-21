@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing/attribute"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/contracts/data"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing/attribute"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/models"
 
 	"emperror.dev/errors"
 	"github.com/redis/go-redis/v9"

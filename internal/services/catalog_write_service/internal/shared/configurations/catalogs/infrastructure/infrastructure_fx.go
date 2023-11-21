@@ -1,15 +1,15 @@
 package infrastructure
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core"
-	gormPostgres "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/gorm_postgres"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/grpc"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/health"
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/configurations"
-	rabbitmq2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/configurations/rabbitmq"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core"
+	gormPostgres "github.com/zizouhuweidi/retro-station/internal/pkg/gorm_postgres"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/configurations"
+	rabbitmq2 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/configurations/rabbitmq"
 
 	"github.com/go-playground/validator"
 	"go.uber.org/fx"

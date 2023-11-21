@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
 )
 
 type OrdersApplicationBuilder struct {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/grpc/grpcErrors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc/grpcErrors"
 
 	"google.golang.org/grpc"
 )

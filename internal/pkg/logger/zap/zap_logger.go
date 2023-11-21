@@ -4,11 +4,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/constants"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	config2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/constants"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	config2 "github.com/zizouhuweidi/retro-station/internal/pkg/logger/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/models"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

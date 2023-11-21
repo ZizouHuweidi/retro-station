@@ -4,19 +4,19 @@ import (
 	"context"
 	"fmt"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/consumer"
-	messageTracing "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/otel/tracing"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing/attribute"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/features/deleting_products/v1/commands"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/consumer"
+	messageTracing "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing/attribute"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/deleting_products/v1/commands"
 
 	"emperror.dev/errors"
 	"github.com/go-playground/validator"
-	"github.com/mehdihadeli/go-mediatr"
 	uuid "github.com/satori/go.uuid"
+	"github.com/zizouhuweidi/go-mediatr"
 )
 
 type productDeletedConsumer struct {

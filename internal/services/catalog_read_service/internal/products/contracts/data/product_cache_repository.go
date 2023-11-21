@@ -3,7 +3,7 @@ package data
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/models"
 )
 
 type ProductCacheRepository interface {

@@ -3,7 +3,7 @@ package projection
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/models"
 )
 
 type IProjection interface {

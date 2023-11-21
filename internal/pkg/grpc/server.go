@@ -5,10 +5,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/grpc/config"
-	grpcError "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/grpc/interceptors/grpc_error"
-	otelMetrics "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/grpc/interceptors/otel_metrics"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc/config"
+	grpcError "github.com/zizouhuweidi/retro-station/internal/pkg/grpc/interceptors/grpc_error"
+	otelMetrics "github.com/zizouhuweidi/retro-station/internal/pkg/grpc/interceptors/otel_metrics"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	"emperror.dev/errors"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"

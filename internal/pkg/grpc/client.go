@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/grpc/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/grpc/config"
 
 	"emperror.dev/errors"
 	"google.golang.org/grpc"

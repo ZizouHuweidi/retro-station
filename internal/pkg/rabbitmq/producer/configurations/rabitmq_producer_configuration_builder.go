@@ -1,8 +1,8 @@
 package configurations
 
 import (
-	types2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/types"
+	types2 "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/types"
 )
 
 type RabbitMQProducerConfigurationBuilder interface {

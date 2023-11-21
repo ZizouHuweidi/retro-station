@@ -1,8 +1,8 @@
 package catalogs
 
 import (
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/docs"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/docs"
 
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"

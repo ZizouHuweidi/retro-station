@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/health"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	bus2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/bus"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/producer"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/bus"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	bus2 "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/bus"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/producer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/bus"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/types"
 
 	"go.uber.org/fx"
 )

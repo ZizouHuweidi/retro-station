@@ -3,7 +3,7 @@ package testData
 import (
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/models"
 
 	"github.com/brianvoe/gofakeit/v6"
 	uuid "github.com/satori/go.uuid"

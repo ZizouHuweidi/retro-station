@@ -5,10 +5,10 @@ package mocks
 import (
 	context "context"
 
-	read_models "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/models/orders/read_models"
+	read_models "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/models/orders/read_models"
 	mock "github.com/stretchr/testify/mock"
 
-	utils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
+	utils "github.com/zizouhuweidi/retro-station/internal/pkg/utils"
 
 	uuid "github.com/satori/go.uuid"
 )

@@ -1,6 +1,6 @@
 package tracing
 
-import "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/metadata"
+import "github.com/zizouhuweidi/retro-station/internal/pkg/core/metadata"
 
 type MessageCarrier struct {
 	meta *metadata.Metadata

@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
 
 	gormlogger "gorm.io/gorm/logger"
 )

@@ -1,16 +1,16 @@
 package products
 
 import (
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/web/route"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/data/repositories"
-	createProductV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/creating_product/v1/endpoints"
-	deleteProductV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/deleting_product/v1/endpoints"
-	getProductByIdV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/getting_product_by_id/v1/endpoints"
-	getProductsV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/getting_products/v1/endpoints"
-	searchProductsV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/endpoints"
-	updateProductsV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/updating_product/v1/endpoints"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/grpc"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/web/route"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/data/repositories"
+	createProductV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/creating_product/v1/endpoints"
+	deleteProductV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/deleting_product/v1/endpoints"
+	getProductByIdV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/getting_product_by_id/v1/endpoints"
+	getProductsV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/getting_products/v1/endpoints"
+	searchProductsV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/endpoints"
+	updateProductsV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/updating_product/v1/endpoints"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/grpc"
 
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"

@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	postgres "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/postgres_pgx"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	postgres "github.com/zizouhuweidi/retro-station/internal/pkg/postgres_pgx"
 )
 
 var PostgresPgxContainerOptionsDecorator = func(t *testing.T, ctx context.Context) interface{} {

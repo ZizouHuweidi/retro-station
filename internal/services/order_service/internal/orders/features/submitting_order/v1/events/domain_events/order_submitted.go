@@ -3,7 +3,7 @@ package domainEvents
 import (
 	"fmt"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
 
 	uuid "github.com/satori/go.uuid"
 )

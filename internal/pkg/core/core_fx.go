@@ -1,9 +1,9 @@
 package core
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/serializer"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/serializer/json"
-	defaultLogger "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/default_logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/serializer"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/serializer/json"
+	defaultLogger "github.com/zizouhuweidi/retro-station/internal/pkg/logger/default_logger"
 
 	"go.uber.org/fx"
 )

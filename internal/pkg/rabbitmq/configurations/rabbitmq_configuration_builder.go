@@ -1,9 +1,9 @@
 package configurations
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	consumerConfigurations "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/consumer/configurations"
-	producerConfigurations "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/producer/configurations"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	consumerConfigurations "github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/consumer/configurations"
+	producerConfigurations "github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/producer/configurations"
 
 	"github.com/samber/lo"
 )

@@ -1,9 +1,9 @@
-module github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice
+module github.com/zizouhuweidi/retro-station/internal/services/orderservice
 
 go 1.21
 
 // https://go.dev/doc/tutorial/call-module-code
-replace github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg => ../../pkg/
+replace github.com/zizouhuweidi/retro-station/internal/pkg => ../../pkg/
 
 require (
 	emperror.dev/errors v0.8.1
@@ -15,7 +15,7 @@ require (
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/goccy/go-json v0.10.2
 	github.com/labstack/echo/v4 v4.11.1
-	github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg v0.0.0-20230831075934-be8df319f588
+	github.com/zizouhuweidi/retro-station/internal/pkg v0.0.0-20230831075934-be8df319f588
 	github.com/mehdihadeli/go-mediatr v1.1.10
 	github.com/michaelklishin/rabbit-hole v1.5.0
 	github.com/onsi/ginkgo v1.16.5

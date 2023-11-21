@@ -3,8 +3,8 @@ package metrics
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/config"
 
 	"emperror.dev/errors"
 	"github.com/labstack/echo/v4"
@@ -44,7 +44,7 @@ func NewOtelMetrics(
 	}
 	provider := metric.NewMeterProvider(metric.WithReader(exporter))
 	meter := provider.Meter(
-		"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/metrics",
+		"github.com/zizouhuweidi/retro-station/internal/pkg/otel/metrics",
 	)
 
 	return &OtelMetrics{Config: config, Meter: meter, Logger: logger, Echo: e}, nil

@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	pipeline "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/pipeline"
+	pipeline "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/pipeline"
 	mock "github.com/stretchr/testify/mock"
 )
 

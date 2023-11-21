@@ -1,16 +1,16 @@
 package orders
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/eventstroredb"
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/web/route"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/data/repositories"
-	createOrderV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/creating_order/v1/endpoints"
-	getOrderByIdV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/endpoints"
-	getOrdersV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/getting_orders/v1/endpoints"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/models/orders/aggregate"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/projections"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/eventstroredb"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/web/route"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/data/repositories"
+	createOrderV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/creating_order/v1/endpoints"
+	getOrderByIdV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/endpoints"
+	getOrdersV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_orders/v1/endpoints"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/models/orders/aggregate"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/projections"
 
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"

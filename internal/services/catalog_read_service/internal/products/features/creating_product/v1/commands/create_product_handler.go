@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing/attribute"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/contracts/data"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/features/creating_product/v1/dtos"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/models"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing/attribute"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/creating_product/v1/dtos"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/models"
 
 	attribute2 "go.opentelemetry.io/otel/attribute"
 )

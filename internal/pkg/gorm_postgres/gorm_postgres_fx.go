@@ -3,7 +3,7 @@ package gormPostgres
 import (
 	"fmt"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/health"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
 
 	"go.uber.org/fx"
 )

@@ -7,9 +7,9 @@ import (
 
 	mock "github.com/stretchr/testify/mock"
 
-	specification "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/data/specification"
+	specification "github.com/zizouhuweidi/retro-station/internal/pkg/core/data/specification"
 
-	utils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
+	utils "github.com/zizouhuweidi/retro-station/internal/pkg/utils"
 
 	uuid "github.com/satori/go.uuid"
 )

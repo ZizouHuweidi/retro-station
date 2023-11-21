@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/types"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/test/hypothesis"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/test/hypothesis"
 )
 
 type RabbitMQFakeTestConsumerHandler[T any] struct {

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/config/environemnt"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/config/environemnt"
 
 	"go.uber.org/fx"
 )

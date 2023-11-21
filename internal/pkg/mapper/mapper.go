@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"reflect"
 
-	defaultLogger "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/default_logger"
-	reflectionHelper "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/reflection/reflection_helper"
+	defaultLogger "github.com/zizouhuweidi/retro-station/internal/pkg/logger/default_logger"
+	reflectionHelper "github.com/zizouhuweidi/retro-station/internal/pkg/reflection/reflection_helper"
 
 	"emperror.dev/errors"
 	"github.com/ahmetb/go-linq/v3"

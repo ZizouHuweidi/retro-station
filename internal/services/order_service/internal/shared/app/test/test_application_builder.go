@@ -1,9 +1,8 @@
 package test
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/test"
-
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/test"
 	"go.uber.org/fx/fxtest"
 )
 

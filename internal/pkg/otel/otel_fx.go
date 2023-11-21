@@ -4,10 +4,10 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/metrics"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/metrics"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
 
 	"emperror.dev/errors"
 	"go.opentelemetry.io/otel/metric"

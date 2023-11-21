@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
 
 	"emperror.dev/errors"
 	"gorm.io/gorm"

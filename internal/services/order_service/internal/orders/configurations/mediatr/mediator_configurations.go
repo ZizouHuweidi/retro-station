@@ -1,19 +1,19 @@
 package mediatr
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/contracts/store"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
-	repositories2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/contracts/repositories"
-	createOrderCommandV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/creating_order/v1/commands"
-	createOrderDtosV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/creating_order/v1/dtos"
-	getOrderByIdDtosV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/dtos"
-	getOrderByIdQueryV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/queries"
-	getOrdersDtosV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/getting_orders/v1/dtos"
-	getOrdersQueryV1 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/features/getting_orders/v1/queries"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/models/orders/aggregate"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/contracts/store"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
+	repositories2 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/contracts/repositories"
+	createOrderCommandV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/creating_order/v1/commands"
+	createOrderDtosV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/creating_order/v1/dtos"
+	getOrderByIdDtosV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/dtos"
+	getOrderByIdQueryV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/queries"
+	getOrdersDtosV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_orders/v1/dtos"
+	getOrdersQueryV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_orders/v1/queries"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/models/orders/aggregate"
 
-	"github.com/mehdihadeli/go-mediatr"
+	"github.com/zizouhuweidi/go-mediatr"
 )
 
 func ConfigOrdersMediator(

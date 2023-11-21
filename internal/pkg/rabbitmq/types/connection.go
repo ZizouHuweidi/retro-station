@@ -3,9 +3,9 @@ package types
 import (
 	"fmt"
 
-	defaultLogger "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/default_logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/rabbitmq/config"
-	errorUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils/error_utils"
+	defaultLogger "github.com/zizouhuweidi/retro-station/internal/pkg/logger/default_logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/rabbitmq/config"
+	errorUtils "github.com/zizouhuweidi/retro-station/internal/pkg/utils/error_utils"
 
 	"emperror.dev/errors"
 	"github.com/rabbitmq/amqp091-go"

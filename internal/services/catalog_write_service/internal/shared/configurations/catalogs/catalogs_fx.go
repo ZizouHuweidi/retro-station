@@ -3,11 +3,11 @@ package catalogs
 import (
 	"fmt"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/data/uow"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/configurations/catalogs/infrastructure"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/contracts"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/data/uow"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/configurations/catalogs/infrastructure"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/contracts"
 
 	"go.opentelemetry.io/otel/metric"
 	api "go.opentelemetry.io/otel/metric"

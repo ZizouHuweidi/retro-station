@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/redis"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/redis"
 )
 
 var RedisContainerOptionsDecorator = func(t *testing.T, ctx context.Context) interface{} {

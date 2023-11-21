@@ -5,7 +5,7 @@
         "title": "Catalogs Write-Service Api",
         "contact": {
             "name": "Mehdi Hadeli",
-            "url": "https://github.com/mehdihadeli"
+            "url": "https://github.com/zizouhuweidi"
         },
         "version": "1.0"
     },
@@ -44,7 +44,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
                         }
                     }
                 }
@@ -68,7 +68,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductRequestDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductRequestDto"
                         }
                     }
                 ],
@@ -76,7 +76,7 @@
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductResponseDto"
                         }
                     }
                 }
@@ -106,7 +106,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_searching_product_v1_dtos.SearchProductsResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_searching_product_v1_dtos.SearchProductsResponseDto"
                         }
                     }
                 }
@@ -138,7 +138,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_getting_product_by_id_v1_dtos.GetProductByIdResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_product_by_id_v1_dtos.GetProductByIdResponseDto"
                         }
                     }
                 }
@@ -162,7 +162,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_updating_product_v1_dtos.UpdateProductRequestDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_updating_product_v1_dtos.UpdateProductRequestDto"
                         }
                     },
                     {
@@ -209,7 +209,7 @@
         }
     },
     "definitions": {
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto": {
             "type": "object",
             "properties": {
                 "createdAt": {
@@ -232,7 +232,7 @@
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductRequestDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductRequestDto": {
             "type": "object",
             "properties": {
                 "description": {
@@ -246,7 +246,7 @@
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductResponseDto": {
             "type": "object",
             "properties": {
                 "productId": {
@@ -254,31 +254,31 @@
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_getting_product_by_id_v1_dtos.GetProductByIdResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_product_by_id_v1_dtos.GetProductByIdResponseDto": {
             "type": "object",
             "properties": {
                 "product": {
-                    "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto"
+                    "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto": {
             "type": "object",
             "properties": {
                 "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto"
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_searching_product_v1_dtos.SearchProductsResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_searching_product_v1_dtos.SearchProductsResponseDto": {
             "type": "object",
             "properties": {
                 "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto"
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_features_updating_product_v1_dtos.UpdateProductRequestDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_updating_product_v1_dtos.UpdateProductRequestDto": {
             "type": "object",
             "properties": {
                 "description": {
@@ -326,13 +326,13 @@
                 }
             }
         },
-        "utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto": {
+        "utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto": {
             "type": "object",
             "properties": {
                 "items": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto"
+                        "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto"
                     }
                 },
                 "page": {

@@ -6,12 +6,12 @@ option go_package = "./;orders_service";
 
 import "google/protobuf/timestamp.proto";
 
-
 message ShopItem {
   string Title = 1;
   string Description = 2;
   uint64 Quantity = 3;
   double Price = 4;
+  string Genre = 5;
 }
 
 message Order {
@@ -25,9 +25,9 @@ message Order {
   string AccountEmail = 8;
   string CancelReason = 9;
   string DeliveryAddress = 10;
-  google.protobuf.Timestamp  DeliveredTime = 11;
-  google.protobuf.Timestamp  CreatedAt = 12;
-  google.protobuf.Timestamp  UpdatedAt = 13;
+  google.protobuf.Timestamp DeliveredTime = 11;
+  google.protobuf.Timestamp CreatedAt = 12;
+  google.protobuf.Timestamp UpdatedAt = 13;
   string PaymentId = 14;
 }
 
@@ -43,9 +43,9 @@ message OrderReadModel {
   string AccountEmail = 9;
   string CancelReason = 10;
   string DeliveryAddress = 11;
-  google.protobuf.Timestamp  DeliveredTime = 12;
-  google.protobuf.Timestamp  CreatedAt = 13;
-  google.protobuf.Timestamp  UpdatedAt = 14;
+  google.protobuf.Timestamp DeliveredTime = 12;
+  google.protobuf.Timestamp CreatedAt = 13;
+  google.protobuf.Timestamp UpdatedAt = 14;
   string PaymentId = 15;
 }
 
@@ -54,34 +54,25 @@ message ShopItemReadModel {
   string Description = 2;
   uint64 Quantity = 3;
   double Price = 4;
+  string Genre = 5;
 }
 
 message CreateOrderReq {
   string AccountEmail = 1;
   repeated ShopItem ShopItems = 2;
   string DeliveryAddress = 3;
-  google.protobuf.Timestamp  DeliveryTime = 4;
+  google.protobuf.Timestamp DeliveryTime = 4;
 }
 
-message CreateOrderRes {
-  string OrderId = 1;
-}
+message CreateOrderRes { string OrderId = 1; }
 
-message SubmitOrderReq {
-  string OrderId = 1;
-}
+message SubmitOrderReq { string OrderId = 1; }
 
-message SubmitOrderRes {
-  string OrderId = 1;
-}
+message SubmitOrderRes { string OrderId = 1; }
 
-message GetOrderByIDReq {
-  string Id = 1;
-}
+message GetOrderByIDReq { string Id = 1; }
 
-message GetOrderByIDRes {
-  OrderReadModel Order = 1;
-}
+message GetOrderByIDRes { OrderReadModel Order = 1; }
 
 message UpdateShoppingCartReq {
   string OrderId = 1;

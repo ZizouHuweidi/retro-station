@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 
-	defaultLogger "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/default_logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger/external/gromlog"
+	defaultLogger "github.com/zizouhuweidi/retro-station/internal/pkg/logger/default_logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/logger/external/gromlog"
 
 	"emperror.dev/errors"
 	"github.com/uptrace/bun/driver/pgdriver"

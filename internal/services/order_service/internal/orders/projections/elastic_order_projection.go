@@ -3,9 +3,9 @@ package projections
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/contracts/projection"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/es/models"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/contracts/repositories"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/contracts/projection"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/es/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/contracts/repositories"
 )
 
 type elasticOrderProjection struct {

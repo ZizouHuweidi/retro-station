@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/eventstroredb/config"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/eventstroredb/config"
 
 	"github.com/EventStore/EventStore-Client-Go/esdb"
 )

@@ -10,18 +10,14 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "contact": {
-            "name": "Mehdi Hadeli",
-            "url": "https://github.com/mehdihadeli"
-        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/v1/products": {
+        "/api/v1/games": {
             "get": {
-                "description": "Get all products",
+                "description": "Get all games",
                 "consumes": [
                     "application/json"
                 ],
@@ -29,9 +25,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Products"
+                    "Games"
                 ],
-                "summary": "Get all product",
+                "summary": "Get all game",
                 "parameters": [
                     {
                         "type": "string",
@@ -53,15 +49,15 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_getting_games_v1_dtos.GetGamesResponseDto"
                         }
                     }
                 }
             }
         },
-        "/api/v1/products/search": {
+        "/api/v1/games/search": {
             "get": {
-                "description": "Search products",
+                "description": "Search games",
                 "consumes": [
                     "application/json"
                 ],
@@ -69,9 +65,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Products"
+                    "Games"
                 ],
-                "summary": "Search products",
+                "summary": "Search games",
                 "parameters": [
                     {
                         "type": "string",
@@ -83,15 +79,15 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_searching_games_v1_dtos.SearchGamesResponseDto"
                         }
                     }
                 }
             }
         },
-        "/api/v1/products/{id}": {
+        "/api/v1/games/{id}": {
             "get": {
-                "description": "Get product by id",
+                "description": "Get game by id",
                 "consumes": [
                     "application/json"
                 ],
@@ -99,13 +95,13 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Products"
+                    "Games"
                 ],
-                "summary": "Get product",
+                "summary": "Get game",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Product ID",
+                        "description": "Game ID",
                         "name": "id",
                         "in": "path",
                         "required": true
@@ -115,7 +111,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_get_game_by_id_v1_dtos.GetGameByIdResponseDto"
                         }
                     }
                 }
@@ -123,7 +119,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto.GameDto": {
             "type": "object",
             "properties": {
                 "createdAt": {
@@ -141,7 +137,10 @@ const docTemplate = `{
                 "price": {
                     "type": "number"
                 },
-                "productId": {
+                "genre": {
+                    "type": "string"
+                },
+                "gameId": {
                     "type": "string"
                 },
                 "updatedAt": {
@@ -149,27 +148,27 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_get_game_by_id_v1_dtos.GetGameByIdResponseDto": {
             "type": "object",
             "properties": {
-                "product": {
-                    "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto"
+                "game": {
+                    "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto.GameDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_getting_games_v1_dtos.GetGamesResponseDto": {
             "type": "object",
             "properties": {
-                "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto"
+                "games": {
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto_GameDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_features_searching_games_v1_dtos.SearchGamesResponseDto": {
             "type": "object",
             "properties": {
-                "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto"
+                "games": {
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto_GameDto"
                 }
             }
         },
@@ -207,13 +206,13 @@ const docTemplate = `{
                 }
             }
         },
-        "utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto": {
+        "utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto_GameDto": {
             "type": "object",
             "properties": {
                 "items": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto"
+                        "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_games_dto.GameDto"
                     }
                 },
                 "page": {

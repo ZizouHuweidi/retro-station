@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/app"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/app"
 
 	"github.com/pterm/pterm"
 	"github.com/pterm/pterm/putils"
@@ -23,7 +23,7 @@ var rootCmd = &cobra.Command{
 // https://github.com/swaggo/swag#how-to-use-it-with-gin
 
 // @contact.name Mehdi Hadeli
-// @contact.url https://github.com/mehdihadeli
+// @contact.url https://github.com/zizouhuweidi
 // @title Catalogs Write-Service Api
 // @version 1.0
 // @description Catalogs Write-Service Api.

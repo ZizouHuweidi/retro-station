@@ -1,11 +1,11 @@
 package orders
 
 import (
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/docs"
-
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/docs"
 )
 
 func (ic *OrdersServiceConfigurator) configSwagger(routeBuilder *customEcho.RouteBuilder) {

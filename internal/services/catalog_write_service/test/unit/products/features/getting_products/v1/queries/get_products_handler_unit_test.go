@@ -8,12 +8,12 @@ import (
 	"net/http"
 	"testing"
 
-	customErrors "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/http_errors/custom_errors"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/features/getting_products/v1/queries"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/mocks/testData"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/models"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/test_fixtures/unit_test"
+	customErrors "github.com/zizouhuweidi/retro-station/internal/pkg/http/http_errors/custom_errors"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/getting_products/v1/queries"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/mocks/testData"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/test_fixtures/unit_test"
 
 	"emperror.dev/errors"
 	"github.com/stretchr/testify/mock"

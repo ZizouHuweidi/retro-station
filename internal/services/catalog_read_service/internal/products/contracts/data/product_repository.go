@@ -3,8 +3,8 @@ package data
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/models"
 )
 
 type ProductRepository interface {

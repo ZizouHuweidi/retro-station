@@ -12,7 +12,7 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "contact": {
             "name": "Mehdi Hadeli",
-            "url": "https://github.com/mehdihadeli"
+            "url": "https://github.com/zizouhuweidi"
         },
         "version": "{{.Version}}"
     },
@@ -53,7 +53,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
                         }
                     }
                 }
@@ -83,7 +83,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto"
                         }
                     }
                 }
@@ -115,7 +115,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto"
+                            "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto"
                         }
                     }
                 }
@@ -123,7 +123,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_dto.ProductDto": {
             "type": "object",
             "properties": {
                 "createdAt": {
@@ -149,27 +149,27 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_features_get_product_by_id_v1_dtos.GetProductByIdResponseDto": {
             "type": "object",
             "properties": {
                 "product": {
-                    "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto"
+                    "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_dto.ProductDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto": {
             "type": "object",
             "properties": {
                 "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto"
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_dto_ProductDto"
                 }
             }
         },
-        "github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto": {
+        "github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_features_searching_products_v1_dtos.SearchProductsResponseDto": {
             "type": "object",
             "properties": {
                 "products": {
-                    "$ref": "#/definitions/utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto"
+                    "$ref": "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_dto_ProductDto"
                 }
             }
         },
@@ -207,13 +207,13 @@ const docTemplate = `{
                 }
             }
         },
-        "utils.ListResult-github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto_ProductDto": {
+        "utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_dto_ProductDto": {
             "type": "object",
             "properties": {
                 "items": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_mehdihadeli_go-ecommerce-microservices_internal_services_catalogreadservice_internal_products_dto.ProductDto"
+                        "$ref": "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogreadservice_internal_products_dto.ProductDto"
                     }
                 },
                 "page": {

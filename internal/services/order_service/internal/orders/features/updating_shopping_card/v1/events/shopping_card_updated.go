@@ -1,8 +1,8 @@
 package domainEvent
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/core/domain"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/models/orders/value_objects"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/core/domain"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/models/orders/value_objects"
 )
 
 type ShoppingCartUpdatedV1 struct {

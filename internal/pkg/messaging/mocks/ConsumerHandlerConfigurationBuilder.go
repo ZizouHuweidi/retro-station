@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	consumer "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/messaging/consumer"
+	consumer "github.com/zizouhuweidi/retro-station/internal/pkg/messaging/consumer"
 	mock "github.com/stretchr/testify/mock"
 )
 

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/constants"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/constants"
 
 	"emperror.dev/errors"
 	"github.com/joho/godotenv"

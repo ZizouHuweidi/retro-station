@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
-	data2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/contracts/data"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/products/models"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogwriteservice/internal/shared/test_fixtures/integration"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/utils"
+	data2 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/models"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/test_fixtures/integration"
 
 	"emperror.dev/errors"
 	"github.com/brianvoe/gofakeit/v6"

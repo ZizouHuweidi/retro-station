@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
-	customEcho "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/http/custom_echo"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/config"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/orders/configurations"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/configurations/orders/infrastructure"
-
 	"github.com/labstack/echo/v4"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
+	customEcho "github.com/zizouhuweidi/retro-station/internal/pkg/http/custom_echo"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/config"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/configurations"
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/configurations/orders/infrastructure"
 )
 
 type OrdersServiceConfigurator struct {

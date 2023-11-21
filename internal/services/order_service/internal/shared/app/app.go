@@ -1,6 +1,8 @@
 package app
 
-import "github.com/mehdihadeli/go-ecommerce-microservices/internal/services/orderservice/internal/shared/configurations/orders"
+import (
+	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/configurations/orders"
+)
 
 type App struct{}
 

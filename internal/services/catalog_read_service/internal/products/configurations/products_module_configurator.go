@@ -1,13 +1,13 @@
 package configurations
 
 import (
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/fxapp/contracts"
-	logger2 "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/logger"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/otel/tracing"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/web/route"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/configurations/mappings"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/configurations/mediator"
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/services/catalogreadservice/internal/products/contracts/data"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/fxapp/contracts"
+	logger2 "github.com/zizouhuweidi/retro-station/internal/pkg/logger"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/otel/tracing"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/web/route"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/configurations/mappings"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/configurations/mediator"
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/contracts/data"
 )
 
 type ProductsModuleConfigurator struct {

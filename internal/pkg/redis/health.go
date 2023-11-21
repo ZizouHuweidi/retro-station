@@ -3,7 +3,7 @@ package redis
 import (
 	"context"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/health"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/health"
 
 	"github.com/redis/go-redis/v9"
 )

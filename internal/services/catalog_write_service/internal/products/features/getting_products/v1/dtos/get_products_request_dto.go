@@ -1,6 +1,6 @@
 package dtos
 
-import "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils"
+import "github.com/zizouhuweidi/retro-station/internal/pkg/utils"
 
 // https://echo.labstack.com/guide/binding/
 // https://echo.labstack.com/guide/request/

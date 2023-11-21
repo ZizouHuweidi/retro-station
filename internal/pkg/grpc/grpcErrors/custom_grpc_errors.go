@@ -3,7 +3,7 @@ package grpcErrors
 import (
 	"time"
 
-	"github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/constants"
+	"github.com/zizouhuweidi/retro-station/internal/pkg/constants"
 
 	"google.golang.org/grpc/codes"
 )

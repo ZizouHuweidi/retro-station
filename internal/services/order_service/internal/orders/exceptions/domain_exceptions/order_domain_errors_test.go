@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	errorUtils "github.com/mehdihadeli/go-ecommerce-microservices/internal/pkg/utils/error_utils"
+	errorUtils "github.com/zizouhuweidi/retro-station/internal/pkg/utils/error_utils"
 
 	"github.com/stretchr/testify/assert"
 )
