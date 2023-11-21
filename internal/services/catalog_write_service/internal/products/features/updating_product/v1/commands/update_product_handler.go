@@ -15,7 +15,7 @@ import (
 	dto "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/dto/v1"
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/updating_product/v1/events/integration_events"
 
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 	attribute2 "go.opentelemetry.io/otel/attribute"
 )
 

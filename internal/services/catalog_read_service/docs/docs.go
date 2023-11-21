@@ -11,7 +11,7 @@ const docTemplate = `{
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
         "contact": {
-            "name": "Mehdi Hadeli",
+            "name": "El Zubeir Huweidi",
             "url": "https://github.com/zizouhuweidi"
         },
         "version": "{{.Version}}"

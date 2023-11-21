@@ -17,8 +17,8 @@ import (
 	productsService "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/grpc/genproto"
 
 	"emperror.dev/errors"
+	"github.com/mehdihadeli/go-mediatr"
 	uuid "github.com/satori/go.uuid"
-	"github.com/zizouhuweidi/go-mediatr"
 	attribute2 "go.opentelemetry.io/otel/attribute"
 	api "go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/trace"

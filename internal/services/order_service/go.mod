@@ -15,7 +15,6 @@ require (
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/goccy/go-json v0.10.2
 	github.com/labstack/echo/v4 v4.11.1
-	github.com/zizouhuweidi/retro-station/internal/pkg v0.0.0-20230831075934-be8df319f588
 	github.com/mehdihadeli/go-mediatr v1.1.10
 	github.com/michaelklishin/rabbit-hole v1.5.0
 	github.com/onsi/ginkgo v1.16.5
@@ -26,6 +25,7 @@ require (
 	github.com/stretchr/testify v1.8.4
 	github.com/swaggo/echo-swagger v1.4.1
 	github.com/swaggo/swag v1.16.2
+	github.com/zizouhuweidi/retro-station/internal/pkg v0.0.0-20230831075934-be8df319f588
 	go.mongodb.org/mongo-driver v1.12.1
 	go.opentelemetry.io/otel v1.17.0
 	go.opentelemetry.io/otel/metric v1.17.0
@@ -159,7 +159,6 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.16.0 // indirect
-	github.com/streadway/amqp v1.1.0 // indirect
 	github.com/stretchr/objx v0.5.1 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/swaggo/files/v2 v2.0.0 // indirect

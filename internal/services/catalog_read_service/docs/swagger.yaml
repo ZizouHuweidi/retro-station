@@ -70,7 +70,7 @@ definitions:
     type: object
 info:
   contact:
-    name: Mehdi Hadeli
+    name: El Zubeir Huweidi
     url: https://github.com/zizouhuweidi
   description: Catalogs Read-Service Api.
   title: Catalogs Read-Service Api

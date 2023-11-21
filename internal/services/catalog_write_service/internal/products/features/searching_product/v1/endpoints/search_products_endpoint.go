@@ -13,7 +13,7 @@ import (
 
 	"emperror.dev/errors"
 	"github.com/labstack/echo/v4"
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 )
 
 type searchProductsEndpoint struct {

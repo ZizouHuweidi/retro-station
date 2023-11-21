@@ -110,7 +110,7 @@ definitions:
     type: object
 info:
   contact:
-    name: Mehdi Hadeli
+    name: El Zubeir Huweidi
     url: https://github.com/zizouhuweidi
   description: Orders Service Api
   title: Orders Service Api

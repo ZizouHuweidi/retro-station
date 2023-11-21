@@ -16,7 +16,7 @@ import (
 	searchProductsQueryV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/searching_product/v1/queries"
 	updateProductCommandV1 "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/updating_product/v1/commands"
 
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 )
 
 func ConfigProductsMediator(

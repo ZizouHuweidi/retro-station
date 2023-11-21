@@ -19,7 +19,7 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/test_fixtures/integration"
 
 	"github.com/brianvoe/gofakeit/v6"
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

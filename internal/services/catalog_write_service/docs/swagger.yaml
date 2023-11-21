@@ -91,7 +91,7 @@ definitions:
     type: object
 info:
   contact:
-    name: Mehdi Hadeli
+    name: El Zubeir Huweidi
     url: https://github.com/zizouhuweidi
   description: Catalogs Write-Service Api.
   title: Catalogs Write-Service Api

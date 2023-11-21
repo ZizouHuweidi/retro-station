@@ -11,8 +11,8 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/get_product_by_id/v1/queries"
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/test_fixture/integration"
 
+	"github.com/mehdihadeli/go-mediatr"
 	uuid "github.com/satori/go.uuid"
-	"github.com/zizouhuweidi/go-mediatr"
 
 	. "github.com/smartystreets/goconvey/convey"
 )

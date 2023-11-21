@@ -10,8 +10,8 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/deleting_products/v1/commands"
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/test_fixture/integration"
 
+	"github.com/mehdihadeli/go-mediatr"
 	uuid "github.com/satori/go.uuid"
-	"github.com/zizouhuweidi/go-mediatr"
 
 	. "github.com/smartystreets/goconvey/convey"
 )

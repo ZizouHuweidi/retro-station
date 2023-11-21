@@ -22,8 +22,8 @@ import (
 
 	"emperror.dev/errors"
 	"github.com/go-playground/validator"
+	"github.com/mehdihadeli/go-mediatr"
 	uuid "github.com/satori/go.uuid"
-	"github.com/zizouhuweidi/go-mediatr"
 	"go.opentelemetry.io/otel/attribute"
 	api "go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/trace"

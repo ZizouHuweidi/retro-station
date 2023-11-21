@@ -22,7 +22,7 @@ var rootCmd = &cobra.Command{
 
 // https://github.com/swaggo/swag#how-to-use-it-with-gin
 
-// @contact.name Mehdi Hadeli
+// @contact.name El Zubeir Huweidi
 // @contact.url https://github.com/zizouhuweidi
 // @title Catalogs Read-Service Api
 // @version 1.0

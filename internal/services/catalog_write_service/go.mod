@@ -15,8 +15,7 @@ require (
 	github.com/iancoleman/strcase v0.3.0
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/lib/pq v1.10.9
-	github.com/zizouhuweidi/retro-station/internal/pkg v0.0.0-20230831075934-be8df319f588
-	github.com/zizouhuweidi/go-mediatr v1.1.10
+	github.com/mehdihadeli/go-mediatr v1.1.10
 	github.com/michaelklishin/rabbit-hole v1.5.0
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.27.10
@@ -26,6 +25,7 @@ require (
 	github.com/stretchr/testify v1.8.4
 	github.com/swaggo/echo-swagger v1.4.1
 	github.com/swaggo/swag v1.16.2
+	github.com/zizouhuweidi/retro-station/internal/pkg v0.0.0-20230831075934-be8df319f588
 	go.opentelemetry.io/otel v1.17.0
 	go.opentelemetry.io/otel/metric v1.17.0
 	go.opentelemetry.io/otel/trace v1.17.0
@@ -151,7 +151,6 @@ require (
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/spf13/viper v1.16.0 // indirect
-	github.com/streadway/amqp v1.1.0 // indirect
 	github.com/stretchr/objx v0.5.1 // indirect
 	github.com/swaggo/files/v2 v2.0.0 // indirect
 	github.com/testcontainers/testcontainers-go v0.23.0 // indirect

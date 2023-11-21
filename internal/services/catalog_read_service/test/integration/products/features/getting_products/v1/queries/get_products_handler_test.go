@@ -12,7 +12,7 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/products/features/getting_products/v1/queries"
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogreadservice/internal/shared/test_fixture/integration"
 
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 
 	. "github.com/smartystreets/goconvey/convey"
 )

@@ -13,7 +13,7 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/getting_products/v1/queries"
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/test_fixtures/integration"
 
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

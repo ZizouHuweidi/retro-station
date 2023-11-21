@@ -12,8 +12,8 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_order_by_id/v1/queries"
 	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/shared/test_fixtures/integration"
 
+	"github.com/mehdihadeli/go-mediatr"
 	uuid "github.com/satori/go.uuid"
-	"github.com/zizouhuweidi/go-mediatr"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

@@ -13,7 +13,7 @@ import (
 	getOrdersQueryV1 "github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/features/getting_orders/v1/queries"
 	"github.com/zizouhuweidi/retro-station/internal/services/orderservice/internal/orders/models/orders/aggregate"
 
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 )
 
 func ConfigOrdersMediator(

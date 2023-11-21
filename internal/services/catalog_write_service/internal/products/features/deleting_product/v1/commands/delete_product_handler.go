@@ -13,7 +13,7 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/contracts/data"
 	integrationEvents "github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/products/features/deleting_product/v1/events/integration_events"
 
-	"github.com/zizouhuweidi/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 	attribute2 "go.opentelemetry.io/otel/attribute"
 )
 
