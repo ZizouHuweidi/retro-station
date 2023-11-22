@@ -3,11 +3,11 @@ package main
 import (
 	"os"
 
-	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/app"
-
 	"github.com/pterm/pterm"
 	"github.com/pterm/pterm/putils"
 	"github.com/spf13/cobra"
+
+	"github.com/zizouhuweidi/retro-station/internal/services/catalogwriteservice/internal/shared/app"
 )
 
 var rootCmd = &cobra.Command{
@@ -30,7 +30,7 @@ var rootCmd = &cobra.Command{
 func main() {
 	pterm.DefaultBigText.WithLetters(
 		putils.LettersFromStringWithStyle("Catalogs", pterm.FgLightGreen.ToStyle()),
-		putils.LettersFromStringWithStyle(" Write Service", pterm.FgLightMagenta.ToStyle())).
+		putils.LettersFromStringWithStyle("Write Service", pterm.FgLightMagenta.ToStyle())).
 		Render()
 
 	err := rootCmd.Execute()

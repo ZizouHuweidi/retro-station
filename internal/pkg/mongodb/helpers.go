@@ -40,19 +40,19 @@ func Paginate[T any](
 	}
 	defer cursor.Close(ctx) // nolint: errcheck
 
-	products := make([]T, 0, listQuery.GetSize())
+	games := make([]T, 0, listQuery.GetSize())
 
 	for cursor.Next(ctx) {
 		var prod T
 		if err := cursor.Decode(&prod); err != nil {
 			return nil, errors.WrapIf(err, "Find")
 		}
-		products = append(products, prod)
+		games = append(games, prod)
 	}
 
 	if err := cursor.Err(); err != nil {
 		return nil, errors.WrapIf(err, "cursor.Err")
 	}
 
-	return utils.NewListResult[T](products, listQuery.GetSize(), listQuery.GetPage(), count), nil
+	return utils.NewListResult[T](games, listQuery.GetSize(), listQuery.GetPage(), count), nil
 }

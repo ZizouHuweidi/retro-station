@@ -5,7 +5,7 @@ package dtos
 // https://github.com/go-playground/validator
 
 // CreateProductRequestDto validation will handle in command level
-type CreateProductRequestDto struct {
+type CreateGameRequestDto struct {
 	Name        string  `json:"name"`
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`

@@ -28,7 +28,7 @@ var Module = fx.Module(
 	rabbitmq.ModuleFunc(
 		func() configurations.RabbitMQConfigurationBuilderFuc {
 			return func(builder configurations.RabbitMQConfigurationBuilder) {
-				rabbitmq2.ConfigProductsRabbitMQ(builder)
+				rabbitmq2.ConfigGamesRabbitMQ(builder)
 			}
 		},
 	),

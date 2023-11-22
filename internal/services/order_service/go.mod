@@ -36,6 +36,8 @@ require (
 )
 
 require (
+	ariga.io/atlas-go-sdk v0.1.1-0.20231001054405-7edfcfc14f1c // indirect
+	ariga.io/atlas-provider-gorm v0.1.1 // indirect
 	atomicgo.dev/cursor v0.2.0 // indirect
 	atomicgo.dev/keyboard v0.2.9 // indirect
 	atomicgo.dev/schedule v0.1.0 // indirect
@@ -55,6 +57,7 @@ require (
 	github.com/caarlos0/env/v8 v8.0.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
+	github.com/cockroachdb/apd v1.1.1-0.20181017181144-bced77f817b4 // indirect
 	github.com/containerd/console v1.0.3 // indirect
 	github.com/containerd/containerd v1.7.5 // indirect
 	github.com/cpuguy83/dockercfg v0.3.1 // indirect
@@ -78,6 +81,7 @@ require (
 	github.com/go-openapi/swag v0.22.4 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
+	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/goccy/go-reflect v1.2.0 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
@@ -123,6 +127,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
+	github.com/mattn/go-sqlite3 v1.14.17 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mcuadros/go-defaults v1.2.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
@@ -209,7 +214,9 @@ require (
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	gorm.io/driver/mysql v1.5.1 // indirect
 	gorm.io/driver/postgres v1.5.2 // indirect
+	gorm.io/driver/sqlite v1.5.2 // indirect
 	gorm.io/gorm v1.25.4 // indirect
 	mellium.im/sasl v0.3.1 // indirect
 	moul.io/http2curl/v2 v2.3.0 // indirect

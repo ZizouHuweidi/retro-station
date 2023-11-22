@@ -91,14 +91,14 @@ lint:
 # https://github.com/golang-migrate/migrate/tree/856ea12df9d230b0145e23d951b7dbd6b86621cb/cmd/migrate#usage
 .PHONY: go-migrate
 go-migrate:
-	@./scripts/go-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/go-migrate -c create -n create_product_table
+	@./scripts/go-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/go-migrate -c create -n create_game_table
 	@./scripts/go-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/go-migrate -c up -o postgres://postgres:postgres@localhost:5432/catalogs_service?sslmode=disable
 	@./scripts/go-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/go-migrate -c down -o postgres://postgres:postgres@localhost:5432/catalogs_service?sslmode=disable
 
 # https://github.com/pressly/goose#usage
 .PHONY: goose-migrate
 goose-migrate:
-	@./scripts/goose-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/goose-migrate -c create -n create_product_table
+	@./scripts/goose-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/goose-migrate -c create -n create_game_table
 	@./scripts/goose-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/goose-migrate -c up -o "user=postgres password=postgres dbname=catalogs_service sslmode=disable"
 	@./scripts/goose-migrate.sh -p ./internal/services/catalog_write_service/db/migrations/goose-migrate -c down -o "user=postgres password=postgres dbname=catalogs_service sslmode=disable"
 

@@ -16,7 +16,7 @@
     "timeout": 30,
     "basePath": "/api/v1",
     "host": "http://localhost",
-    "productsPath": "products",
+    "gamesPath": "games",
     "debugHeaders": true,
     "httpClientDebug": true,
     "debugErrorsResponse": true,
@@ -82,7 +82,7 @@
     "pretty": true
   },
   "elasticIndexes": {
-    "products": "products"
+    "games": "games"
   },
   "eventStoreDbOptions": {
     "connectionString": "esdb://localhost:2113?tls=false"

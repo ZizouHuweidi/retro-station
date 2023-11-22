@@ -6,7 +6,7 @@ import (
 
 type GameDto struct {
 	Id          string    `json:"id"`
-	ProductId   string    `json:"productId"`
+	GameId      string    `json:"gameId"`
 	Name        string    `json:"name"`
 	Description string    `json:"description"`
 	Price       float64   `json:"price"`

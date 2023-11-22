@@ -6,9 +6,9 @@ import (
 	"github.com/zizouhuweidi/retro-station/internal/pkg/messaging/types"
 )
 
-type ProductCreatedV1 struct {
+type GameCreatedV1 struct {
 	*types.Message
-	ProductId   string    `json:"productId,omitempty"`
+	GameId      string    `json:"gameId,omitempty"`
 	Name        string    `json:"name,omitempty"`
 	Description string    `json:"description,omitempty"`
 	Price       float64   `json:"price,omitempty"`

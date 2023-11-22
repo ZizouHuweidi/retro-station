@@ -36,6 +36,7 @@ require (
 )
 
 require (
+	ariga.io/atlas-provider-gorm v0.1.1 // indirect
 	atomicgo.dev/cursor v0.2.0 // indirect
 	atomicgo.dev/keyboard v0.2.9 // indirect
 	atomicgo.dev/schedule v0.1.0 // indirect
@@ -56,6 +57,7 @@ require (
 	github.com/avast/retry-go v3.0.0+incompatible // indirect
 	github.com/caarlos0/env/v8 v8.0.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
+	github.com/cockroachdb/apd v1.1.1-0.20181017181144-bced77f817b4 // indirect
 	github.com/containerd/console v1.0.3 // indirect
 	github.com/containerd/containerd v1.7.5 // indirect
 	github.com/cpuguy83/dockercfg v0.3.1 // indirect

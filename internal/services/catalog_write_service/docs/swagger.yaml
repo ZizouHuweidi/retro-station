@@ -1,51 +1,57 @@
 definitions:
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto:
+  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_dto_v1.GameDto:
     properties:
       createdAt:
         type: string
       description:
         type: string
+      gameId:
+        type: string
+      genre:
+        type: string
       name:
         type: string
       price:
         type: number
-      productId:
-        type: string
       updatedAt:
         type: string
     type: object
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductRequestDto:
-    properties:
+  ? github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_creating_game_v1_dtos.CreateGameRequestDto
+  : properties:
       description:
+        type: string
+      genre:
         type: string
       name:
         type: string
       price:
         type: number
     type: object
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductResponseDto:
-    properties:
-      productId:
+  ? github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_creating_game_v1_dtos.CreateGameResponseDto
+  : properties:
+      gameId:
         type: string
     type: object
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_product_by_id_v1_dtos.GetProductByIdResponseDto:
-    properties:
-      product:
-        $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto"
+  ? github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_getting_game_by_id_v1_dtos.GetGameByIdResponseDto
+  : properties:
+      game:
+        $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_dto_v1.GameDto'
     type: object
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto:
-    properties:
-      products:
-        $ref: "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto"
+  ? github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_getting_games_v1_dtos.GetGamesResponseDto
+  : properties:
+      games:
+        $ref: '#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_dto_v1_GameDto'
     type: object
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_searching_product_v1_dtos.SearchProductsResponseDto:
-    properties:
-      products:
-        $ref: "#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto"
+  ? github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_searching_game_v1_dtos.SearchGamesResponseDto
+  : properties:
+      games:
+        $ref: '#/definitions/utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_dto_v1_GameDto'
     type: object
-  github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_updating_product_v1_dtos.UpdateProductRequestDto:
-    properties:
+  ? github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_updating_game_v1_dtos.UpdateGameRequestDto
+  : properties:
       description:
+        type: string
+      genre:
         type: string
       name:
         type: string
@@ -65,7 +71,7 @@ definitions:
     properties:
       filters:
         items:
-          $ref: "#/definitions/utils.FilterModel"
+          $ref: '#/definitions/utils.FilterModel'
         type: array
       orderBy:
         type: string
@@ -74,11 +80,11 @@ definitions:
       size:
         type: integer
     type: object
-  utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1_ProductDto:
+  utils.ListResult-github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_dto_v1_GameDto:
     properties:
       items:
         items:
-          $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_dto_v1.ProductDto"
+          $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_dto_v1.GameDto'
         type: array
       page:
         type: integer
@@ -97,132 +103,132 @@ info:
   title: Catalogs Write-Service Api
   version: "1.0"
 paths:
-  /api/v1/products:
+  /api/v1/games:
     get:
       consumes:
-        - application/json
-      description: Get all products
+      - application/json
+      description: Get all games
       parameters:
-        - in: query
-          name: orderBy
-          type: string
-        - in: query
-          name: page
-          type: integer
-        - in: query
-          name: size
-          type: integer
+      - in: query
+        name: orderBy
+        type: string
+      - in: query
+        name: page
+        type: integer
+      - in: query
+        name: size
+        type: integer
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_products_v1_dtos.GetProductsResponseDto"
-      summary: Get all product
+            $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_getting_games_v1_dtos.GetGamesResponseDto'
+      summary: Get all game
       tags:
-        - Products
+      - Games
     post:
       consumes:
-        - application/json
-      description: Create new product item
+      - application/json
+      description: Create new game item
       parameters:
-        - description: Product data
-          in: body
-          name: CreateProductRequestDto
-          required: true
-          schema:
-            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductRequestDto"
+      - description: Game data
+        in: body
+        name: CreateGameRequestDto
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_creating_game_v1_dtos.CreateGameRequestDto'
       produces:
-        - application/json
+      - application/json
       responses:
         "201":
           description: Created
           schema:
-            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_creating_product_v1_dtos.CreateProductResponseDto"
-      summary: Create product
+            $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_creating_game_v1_dtos.CreateGameResponseDto'
+      summary: Create game
       tags:
-        - Products
-  /api/v1/products/{id}:
+      - Games
+  /api/v1/games/{id}:
     delete:
       consumes:
-        - application/json
-      description: Delete existing product
+      - application/json
+      description: Delete existing game
       parameters:
-        - description: Product ID
-          in: path
-          name: id
-          required: true
-          type: string
+      - description: Game ID
+        in: path
+        name: id
+        required: true
+        type: string
       produces:
-        - application/json
+      - application/json
       responses:
         "204":
           description: No Content
-      summary: Delete product
+      summary: Delete game
       tags:
-        - Products
+      - Games
     get:
       consumes:
-        - application/json
-      description: Get product by id
+      - application/json
+      description: Get game by id
       parameters:
-        - description: Product ID
-          in: path
-          name: id
-          required: true
-          type: string
+      - description: Game ID
+        in: path
+        name: id
+        required: true
+        type: string
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_getting_product_by_id_v1_dtos.GetProductByIdResponseDto"
-      summary: Get product by id
+            $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_getting_game_by_id_v1_dtos.GetGameByIdResponseDto'
+      summary: Get game by id
       tags:
-        - Products
+      - Games
     put:
       consumes:
-        - application/json
-      description: Update existing product
+      - application/json
+      description: Update existing game
       parameters:
-        - description: Product data
-          in: body
-          name: UpdateProductRequestDto
-          required: true
-          schema:
-            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_updating_product_v1_dtos.UpdateProductRequestDto"
-        - description: Product ID
-          in: path
-          name: id
-          required: true
-          type: string
+      - description: Game data
+        in: body
+        name: UpdateGameRequestDto
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_updating_game_v1_dtos.UpdateGameRequestDto'
+      - description: Game ID
+        in: path
+        name: id
+        required: true
+        type: string
       produces:
-        - application/json
+      - application/json
       responses:
         "204":
           description: No Content
-      summary: Update product
+      summary: Update game
       tags:
-        - Products
-  /api/v1/products/search:
+      - Games
+  /api/v1/games/search:
     get:
       consumes:
-        - application/json
-      description: Search products
+      - application/json
+      description: Search games
       parameters:
-        - in: query
-          name: search
-          type: string
+      - in: query
+        name: search
+        type: string
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_products_features_searching_product_v1_dtos.SearchProductsResponseDto"
-      summary: Search products
+            $ref: '#/definitions/github_com_zizouhuweidi_retro-station_internal_services_catalogwriteservice_internal_games_features_searching_game_v1_dtos.SearchGamesResponseDto'
+      summary: Search games
       tags:
-        - Products
+      - Games
 swagger: "2.0"
