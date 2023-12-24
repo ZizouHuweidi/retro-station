@@ -29,7 +29,6 @@ type JaegerConfig struct {
 
 var cfg *Config = &Config{
 	Address:               ":8090",
-	AdService:             "adservice",
 	CartService:           "cartservice",
 	CheckoutService:       "checkoutservice",
 	CurrencyService:       "currencyservice",

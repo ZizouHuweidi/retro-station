@@ -37,7 +37,7 @@ message Product {
   string name = 2;
   string description = 3;
   string picture = 4;
-  Money price = 5;
+  Money price_usd = 5;
 
   // Categories such as "clothing" or "kitchen" that can be used to look up
   // other related products.
