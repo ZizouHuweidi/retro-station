@@ -9,7 +9,6 @@ import (
 type Config struct {
 	Address               string
 	Tracing               TracingConfig
-	AdService             string
 	CartService           string
 	CheckoutService       string
 	CurrencyService       string
