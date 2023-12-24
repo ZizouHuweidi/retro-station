@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "id": "OLJCESPC7Z",
+      "name": "Earthbound",
+      "description": "earthbound",
+      "picture": "/static/img/products/EarthBound.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 19,
+        "nanos": 990000000
+      },
+      "categories": ["90s"]
+    },
+    {
+      "id": "66VCHSJNUP",
+      "name": "Contra",
+      "description": "contra game",
+      "picture": "/static/img/products/Contra.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 18,
+        "nanos": 990000000
+      },
+      "categories": ["90s"]
+    },
+    {
+      "id": "1YMWWN1N4O",
+      "name": "Aladdin Genesis",
+      "description": "another disney ripoff",
+      "picture": "/static/img/products/Aladdingenesis.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 109,
+        "nanos": 990000000
+      },
+      "categories": ["movie"]
+    },
+    {
+      "id": "L9ECAV7KIM",
+      "name": "Crash Bandicoot",
+      "description": "You know this lol.",
+      "picture": "/static/img/products/Crash_Bandicoot.png",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 89,
+        "nanos": 990000000
+      },
+      "categories": ["playstation"]
+    },
+    {
+      "id": "2ZYFJ3GM2N",
+      "name": "King of Fighters",
+      "description": "Good fighting game",
+      "picture": "/static/img/products/KOFXV.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 24,
+        "nanos": 990000000
+      },
+      "categories": ["fighting"]
+    },
+    {
+      "id": "0PUK6V6EV0",
+      "name": "Sonic",
+      "description": "Sonic the Hedgehog",
+      "picture": "/static/img/products/Sonic.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 18,
+        "nanos": 990000000
+      },
+      "categories": ["sega"]
+    },
+    {
+      "id": "LS4PSXUNUM",
+      "name": "Tetris",
+      "description": "Classic Tetris",
+      "picture": "/static/img/products/tetris.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 18,
+        "nanos": 490000000
+      },
+      "categories": ["puzzle"]
+    },
+    {
+      "id": "9SIQT8TOJO",
+      "name": "Donkey Kong",
+      "description": "Donkey Kong",
+      "picture": "/static/img/products/Donkey_Kong.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 5,
+        "nanos": 490000000
+      },
+      "categories": ["nintendo"]
+    },
+    {
+      "id": "6E92ZMYYFZ",
+      "name": "Pong",
+      "description": "Pong",
+      "picture": "/static/img/products/pong.jpg",
+      "priceUsd": {
+        "currencyCode": "USD",
+        "units": 8,
+        "nanos": 990000000
+      },
+      "categories": ["pong"]
+    }
+  ]
+}

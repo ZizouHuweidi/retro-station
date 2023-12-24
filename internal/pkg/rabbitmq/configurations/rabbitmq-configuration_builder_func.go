@@ -1,3 +1,0 @@
-package configurations
-
-type RabbitMQConfigurationBuilderFuc func(builder RabbitMQConfigurationBuilder)

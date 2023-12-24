@@ -1,0 +1,13 @@
+go 1.20
+
+use (
+	./src/cartservice
+	./src/currencyservice
+	./src/checkoutservice
+	./src/emailservice
+	./src/frontend
+	./src/paymentservice
+	./src/productcatalogservice
+	./src/recommendationservice
+	./src/shippingservice
+)

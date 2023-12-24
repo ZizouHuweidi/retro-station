@@ -16,4 +16,6 @@
 
 # IDE
 .vscode
-__debug_bin
+
+# don't commit the service binary to vcs
+checkoutservice
