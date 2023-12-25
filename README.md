@@ -5,6 +5,26 @@ web-based e-commerce app where users can browse retro games, add them to the car
 
 ## Screenshots
 
+### Catalog
+
+![catalog](./docs/img/catalog.png)
+
+### Product
+
+![product](./docs/img/product.png)
+
+### Recommendations
+
+![recommendations](./docs/img/recomendations.png)
+
+### Checkout
+
+![checkout](./docs/img/checkout.png)
+
+### Shipping Confirmation
+
+![confirmation](./docs/img/confirmation.png)
+
 ## Architecture
 
 **Retro Station** is composed of 10 microservices that talk to each other over gRPC.
